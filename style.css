@@ -1,0 +1,173 @@
+/* Style pour le site Centr Supply - Refonte de la structure interne */
+
+/* Reset et base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+}
+
+/* Conteneur principal */
+.main-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: 700;
+  color: #2171b5;
+}
+
+.nav {
+  display: flex;
+  list-style: none;
+  gap: 30px;
+}
+
+.nav a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.nav a:hover {
+  color: #2171b5;
+}
+
+/* Sections */
+.section {
+  padding: 60px 0;
+}
+
+.section h2 {
+  font-size: 36px;
+  margin-bottom: 30px;
+  text-align: center;
+  color: #2171b5;
+}
+
+.section p {
+  font-size: 18px;
+  line-height: 1.8;
+  margin-bottom: 20px;
+}
+
+/* Grille pour les produits/services */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.card {
+  background: #f9f9f9;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  transition: transform 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card h3 {
+  font-size: 24px;
+  margin-bottom: 15px;
+  color: #2171b5;
+}
+
+.card p {
+  color: #666;
+}
+
+/* Boutons */
+.btn {
+  display: inline-block;
+  padding: 12px 24px;
+  background: #2171b5;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background 0.3s;
+}
+
+.btn:hover {
+  background: #1a5a8a;
+}
+
+/* Footer */
+.footer {
+  background: #333;
+  color: white;
+  padding: 40px 0;
+  text-align: center;
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 30px;
+  margin-bottom: 20px;
+}
+
+.footer-section h4 {
+  margin-bottom: 15px;
+  color: #2171b5;
+}
+
+.footer-section ul {
+  list-style: none;
+}
+
+.footer-section a {
+  color: #ccc;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-section a:hover {
+  color: white;
+}
+
+.footer-bottom {
+  border-top: 1px solid #555;
+  padding-top: 20px;
+  font-size: 14px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .nav {
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .section h2 {
+    font-size: 28px;
+  }
+}
