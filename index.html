@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Centr Supply — Distributeur B2B</title>
+  <title>Plaque NFC — Centr Supply</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
@@ -46,7 +46,7 @@
     }
 
     .nav-logo img {
-      height: 64px;
+      height: 48px;
       width: auto;
       display: block;
     }
@@ -137,7 +137,7 @@
       letter-spacing: 0.04em;
       transition: opacity 0.2s !important;
     }
-    .nav-cta:hover { opacity: 0.85; color: var(--black) !important; }
+    .nav-cta:hover { opacity: 0.85; }
 
     /* ── HERO ── */
     .hero {
@@ -153,9 +153,17 @@
     .hero::before {
       content: '';
       position: absolute;
-      top: -200px; right: -200px;
-      width: 700px; height: 700px;
-      background: radial-gradient(circle, rgba(204,253,85,0.08) 0%, transparent 70%);
+      top: -150px; right: -100px;
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(204,253,85,0.1) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -100px; left: -100px;
+      width: 400px; height: 400px;
+      background: radial-gradient(circle, rgba(204,253,85,0.05) 0%, transparent 70%);
       pointer-events: none;
     }
 
@@ -177,11 +185,11 @@
     }
 
     .hero h1 {
-      font-size: clamp(3rem, 7vw, 6rem);
+      font-size: clamp(2.8rem, 6vw, 5.5rem);
       font-weight: 900;
       line-height: 1.0;
       letter-spacing: -0.03em;
-      max-width: 900px;
+      max-width: 800px;
       margin-bottom: 32px;
     }
     .hero h1 em {
@@ -190,11 +198,11 @@
     }
 
     .hero-sub {
-      font-size: clamp(1rem, 2vw, 1.25rem);
+      font-size: clamp(1rem, 1.8vw, 1.2rem);
       color: var(--text-muted);
       max-width: 560px;
-      line-height: 1.7;
-      margin-bottom: 52px;
+      line-height: 1.75;
+      margin-bottom: 48px;
     }
 
     .hero-actions {
@@ -234,27 +242,7 @@
     }
     .btn-secondary:hover { border-color: var(--green); background: rgba(204,253,85,0.05); }
 
-    .hero-stats {
-      display: flex;
-      gap: 60px;
-      margin-top: 80px;
-      flex-wrap: wrap;
-    }
-    .stat-item {}
-    .stat-num {
-      font-size: 2.4rem;
-      font-weight: 800;
-      color: var(--green);
-      letter-spacing: -0.02em;
-    }
-    .stat-label {
-      font-size: 0.82rem;
-      color: var(--text-muted);
-      margin-top: 4px;
-      font-weight: 400;
-    }
-
-    /* ── SECTIONS ── */
+    /* ── SECTION BASE ── */
     section { padding: 100px 60px; }
 
     .section-label {
@@ -267,10 +255,10 @@
     }
 
     .section-title {
-      font-size: clamp(2rem, 4vw, 3rem);
+      font-size: clamp(1.8rem, 3.5vw, 2.8rem);
       font-weight: 800;
       letter-spacing: -0.02em;
-      line-height: 1.1;
+      line-height: 1.15;
       max-width: 700px;
       margin-bottom: 20px;
     }
@@ -282,318 +270,293 @@
       line-height: 1.75;
     }
 
-    /* ── PROBLEM / SOLUTION ── */
-    .problem-section {
-      background: var(--gray);
-    }
+    /* ── HOW IT WORKS ── */
+    .how-section { background: var(--gray); }
 
-    .ps-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2px;
-      margin-top: 60px;
-    }
-
-    .ps-card {
-      padding: 48px;
-      background: var(--gray2);
-    }
-    .ps-card:first-child { border-radius: 12px 0 0 12px; }
-    .ps-card:last-child { border-radius: 0 12px 12px 0; }
-
-    .ps-tag {
-      display: inline-block;
-      padding: 4px 12px;
-      border-radius: 4px;
-      font-size: 0.72rem;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      margin-bottom: 24px;
-    }
-    .tag-problem { background: rgba(255,80,80,0.15); color: #ff6b6b; }
-    .tag-solution { background: rgba(204,253,85,0.12); color: var(--green); }
-
-    .ps-card h3 {
-      font-size: 1.4rem;
-      font-weight: 700;
-      margin-bottom: 16px;
-      line-height: 1.3;
-    }
-    .ps-card p {
-      color: var(--text-muted);
-      line-height: 1.75;
-    }
-    .ps-card ul {
-      list-style: none;
-      margin-top: 20px;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-    .ps-card ul li {
-      display: flex;
-      align-items: flex-start;
-      gap: 10px;
-      color: var(--text-muted);
-      font-size: 0.95rem;
-    }
-    .ps-card ul li::before {
-      content: '—';
-      color: #ff6b6b;
-      flex-shrink: 0;
-    }
-    .ps-card.solution ul li::before {
-      content: '✓';
-      color: var(--green);
-    }
-
-    /* ── SERVICES ── */
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 2px;
-      margin-top: 60px;
-    }
-
-    .service-card {
-      background: var(--gray2);
-      padding: 40px 36px;
-      border-radius: 0;
-      transition: background 0.2s;
-    }
-    .service-card:first-child { border-radius: 12px 0 0 12px; }
-    .service-card:last-child { border-radius: 0 12px 12px 0; }
-    .service-card:hover { background: var(--gray3); }
-
-    .service-icon {
-      width: 48px; height: 48px;
-      background: rgba(204,253,85,0.1);
-      border-radius: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.4rem;
-      margin-bottom: 24px;
-    }
-
-    .service-card h3 {
-      font-size: 1.15rem;
-      font-weight: 700;
-      margin-bottom: 12px;
-    }
-    .service-card p {
-      color: var(--text-muted);
-      font-size: 0.9rem;
-      line-height: 1.7;
-    }
-
-    /* ── PILLARS ── */
-    .pillars-section { background: var(--black); }
-
-    .pillars-grid {
+    .steps {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 24px;
+      gap: 2px;
       margin-top: 60px;
     }
 
-    .pillar-card {
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 12px;
+    .step-card {
+      background: var(--gray2);
       padding: 36px 28px;
-      transition: border-color 0.3s, background 0.3s;
     }
-    .pillar-card:hover {
-      border-color: var(--green);
-      background: rgba(204,253,85,0.03);
-    }
+    .step-card:first-child { border-radius: 12px 0 0 12px; }
+    .step-card:last-child { border-radius: 0 12px 12px 0; }
 
-    .pillar-num {
-      font-size: 2.5rem;
+    .step-num {
+      font-size: 2rem;
       font-weight: 900;
       color: var(--green);
-      opacity: 0.3;
       letter-spacing: -0.04em;
       margin-bottom: 16px;
+      opacity: 0.4;
     }
 
-    .pillar-card h3 {
-      font-size: 1.05rem;
+    .step-card h3 {
+      font-size: 1rem;
       font-weight: 700;
       margin-bottom: 10px;
     }
-    .pillar-card p {
+    .step-card p {
       color: var(--text-muted);
       font-size: 0.88rem;
       line-height: 1.65;
     }
 
-    /* ── NFC TEASER ── */
-    .nfc-teaser {
-      background: var(--gray);
-    }
+    /* ── AVANTAGES ── */
+    .avantages-section { background: var(--black); }
 
-    .nfc-inner {
+    .avantages-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 80px;
-      align-items: center;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 60px;
     }
 
-    .nfc-visual {
-      position: relative;
-      height: 400px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+    .av-card {
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 12px;
+      padding: 36px 28px;
+      transition: border-color 0.3s, background 0.3s;
+    }
+    .av-card:hover {
+      border-color: var(--green);
+      background: rgba(204,253,85,0.03);
     }
 
-    .nfc-card-mock {
-      width: 260px; height: 160px;
-      background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
-      border-radius: 16px;
-      border: 1px solid rgba(204,253,85,0.3);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 12px;
-      box-shadow: 0 0 60px rgba(204,253,85,0.12);
+    .av-icon {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      display: block;
     }
 
-    .nfc-icon {
-      width: 48px; height: 48px;
-      border: 2px solid var(--green);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.4rem;
-    }
-
-    .nfc-card-mock span {
-      font-size: 0.8rem;
-      color: var(--text-muted);
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-    }
-
-    .nfc-rings {
-      position: absolute;
-      top: 50%; left: 50%;
-      transform: translate(-50%, -50%);
-    }
-    .nfc-rings span {
-      position: absolute;
-      border: 1px solid rgba(204,253,85,0.1);
-      border-radius: 50%;
-      top: 50%; left: 50%;
-      transform: translate(-50%, -50%);
-      animation: pulse-ring 3s ease-out infinite;
-    }
-    .nfc-rings span:nth-child(1) { width: 300px; height: 300px; animation-delay: 0s; }
-    .nfc-rings span:nth-child(2) { width: 400px; height: 400px; animation-delay: 0.8s; }
-    .nfc-rings span:nth-child(3) { width: 500px; height: 500px; animation-delay: 1.6s; }
-
-    @keyframes pulse-ring {
-      0% { opacity: 0.6; transform: translate(-50%, -50%) scale(0.95); }
-      100% { opacity: 0; transform: translate(-50%, -50%) scale(1.05); }
-    }
-
-    .nfc-content .section-title { max-width: 500px; }
-
-    .nfc-bullets {
-      list-style: none;
-      margin: 32px 0;
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-    }
-    .nfc-bullets li {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      font-size: 0.95rem;
-      color: var(--text-muted);
-    }
-    .nfc-bullets li::before {
-      content: '✓';
-      color: var(--green);
+    .av-card h3 {
+      font-size: 1.05rem;
       font-weight: 700;
-      flex-shrink: 0;
+      margin-bottom: 10px;
+    }
+    .av-card p {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      line-height: 1.7;
     }
 
-    /* ── CONTACT ── */
-    .contact-section {
+    /* ── SIMULATOR ── */
+    .simulator-section { background: var(--gray); }
+
+    .sim-wrap {
+      max-width: 780px;
+      margin: 60px auto 0;
+      background: var(--gray2);
+      border: 1px solid rgba(204,253,85,0.2);
+      border-radius: 20px;
+      padding: 52px;
+    }
+
+    .sim-title {
+      font-size: 1.5rem;
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+    .sim-desc {
+      color: var(--text-muted);
+      font-size: 0.92rem;
+      margin-bottom: 40px;
+    }
+
+    .sim-type-toggle {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 36px;
+      background: var(--gray3);
+      border-radius: 10px;
+      padding: 4px;
+    }
+
+    .sim-toggle-btn {
+      flex: 1;
+      padding: 10px;
+      border: none;
+      border-radius: 8px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.88rem;
+      font-weight: 600;
+      cursor: pointer;
+      background: transparent;
+      color: var(--text-muted);
+      transition: all 0.2s;
+    }
+    .sim-toggle-btn.active {
+      background: var(--green);
+      color: var(--black);
+    }
+
+    .sim-sliders {
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+      margin-bottom: 36px;
+    }
+
+    .slider-group label {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 12px;
+    }
+    .slider-group label span {
+      color: var(--green);
+      font-size: 1rem;
+      font-weight: 700;
+    }
+
+    input[type="range"] {
+      width: 100%;
+      -webkit-appearance: none;
+      appearance: none;
+      height: 4px;
+      border-radius: 4px;
+      background: var(--gray3);
+      outline: none;
+      cursor: pointer;
+    }
+    input[type="range"]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: var(--green);
+      cursor: pointer;
+      box-shadow: 0 0 0 4px rgba(204,253,85,0.15);
+      transition: box-shadow 0.2s;
+    }
+    input[type="range"]::-webkit-slider-thumb:hover {
+      box-shadow: 0 0 0 8px rgba(204,253,85,0.2);
+    }
+
+    .sim-result {
+      background: var(--black);
+      border-radius: 14px;
+      padding: 36px;
+      text-align: center;
+      border: 1px solid rgba(204,253,85,0.15);
+    }
+
+    .sim-result-label {
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 10px;
+    }
+
+    .sim-result-main {
+      font-size: 3.5rem;
+      font-weight: 900;
+      color: var(--green);
+      letter-spacing: -0.03em;
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+
+    .sim-result-sub {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      margin-bottom: 28px;
+    }
+
+    .sim-breakdown {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .breakdown-item {
+      background: var(--gray2);
+      border-radius: 10px;
+      padding: 16px;
+    }
+    .breakdown-val {
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: var(--white);
+    }
+    .breakdown-label {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+
+    .sim-note {
+      margin-top: 24px;
+      font-size: 0.78rem;
+      color: rgba(136,136,136,0.6);
+      text-align: center;
+      line-height: 1.6;
+    }
+
+    /* ── CTA ── */
+    .cta-section {
       background: var(--black);
     }
 
-    .contact-inner {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 80px;
-      align-items: start;
+    .cta-inner {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
     }
 
-    .contact-cards {
+    .cta-inner .section-title {
+      max-width: 600px;
+      margin: 0 auto 20px;
+      font-size: clamp(2rem, 4vw, 3rem);
+    }
+
+    .cta-inner .section-desc {
+      max-width: 500px;
+      margin: 0 auto 48px;
+    }
+
+    .cta-actions {
       display: flex;
-      flex-direction: column;
       gap: 16px;
-      margin-top: 40px;
-    }
-
-    .contact-card {
-      display: flex;
-      align-items: center;
-      gap: 18px;
-      padding: 20px 24px;
-      background: var(--gray2);
-      border-radius: 10px;
-      text-decoration: none;
-      border: 1px solid rgba(255,255,255,0.06);
-      transition: border-color 0.2s, background 0.2s;
-    }
-    .contact-card:hover {
-      border-color: var(--green);
-      background: rgba(204,253,85,0.04);
-    }
-
-    .contact-card-icon {
-      width: 44px; height: 44px;
-      background: rgba(204,253,85,0.1);
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
       justify-content: center;
-      font-size: 1.2rem;
-      flex-shrink: 0;
-    }
-
-    .contact-card-info {}
-    .contact-card-label {
-      font-size: 0.75rem;
-      color: var(--text-muted);
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      font-weight: 600;
-    }
-    .contact-card-value {
-      font-size: 0.95rem;
-      color: var(--white);
-      font-weight: 500;
-      margin-top: 2px;
+      flex-wrap: wrap;
+      margin-bottom: 60px;
     }
 
     /* FORM */
-    .contact-form-wrap {
-      margin-top: 40px;
+    .cta-form-wrap {
+      background: var(--gray2);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 20px;
+      padding: 48px;
+      text-align: left;
+    }
+
+    .form-title {
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+    .form-subtitle {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      margin-bottom: 32px;
     }
 
     .form-group {
       margin-bottom: 16px;
     }
-
     .form-group label {
       display: block;
       font-size: 0.8rem;
@@ -603,12 +566,11 @@
       text-transform: uppercase;
       margin-bottom: 8px;
     }
-
     .form-group input,
     .form-group textarea,
     .form-group select {
       width: 100%;
-      background: var(--gray2);
+      background: var(--gray3);
       border: 1px solid rgba(255,255,255,0.1);
       border-radius: 8px;
       color: var(--white);
@@ -618,12 +580,11 @@
       outline: none;
       transition: border-color 0.2s;
     }
+    .form-group select option { background: var(--gray3); }
     .form-group input:focus,
     .form-group textarea:focus,
-    .form-group select:focus {
-      border-color: var(--green);
-    }
-    .form-group textarea { resize: vertical; min-height: 120px; }
+    .form-group select:focus { border-color: var(--green); }
+    .form-group textarea { resize: vertical; min-height: 110px; }
 
     .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
 
@@ -654,134 +615,11 @@
       flex-wrap: wrap;
       gap: 16px;
     }
-
     .footer-logo img {
       height: 40px;
       width: auto;
     }
-
-    .footer-copy {
-      font-size: 0.82rem;
-      color: var(--text-muted);
-    }
-
-    /* ── CLIENTÈLES ── */
-    .clienteles-section { background: var(--gray); }
-
-    .clienteles-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 16px;
-      margin-top: 60px;
-    }
-
-    .client-card {
-      background: var(--gray2);
-      border-radius: 12px;
-      padding: 28px 24px;
-      border: 1px solid rgba(255,255,255,0.06);
-      transition: border-color 0.3s, background 0.3s;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-    .client-card:hover {
-      border-color: var(--green);
-      background: rgba(204,253,85,0.03);
-    }
-
-    .client-card-icon { font-size: 1.8rem; }
-    .client-card h3 { font-size: 0.95rem; font-weight: 700; }
-    .client-card p { color: var(--text-muted); font-size: 0.82rem; line-height: 1.6; }
-
-    /* ── PRODUITS ── */
-    .produits-section { background: var(--black); }
-
-    .produits-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 2px;
-      margin-top: 60px;
-    }
-
-    .produit-card {
-      background: var(--gray2);
-      padding: 40px 32px;
-      transition: background 0.2s;
-    }
-    .produit-card:first-child { border-radius: 12px 0 0 12px; }
-    .produit-card:last-child { border-radius: 0 12px 12px 0; }
-    .produit-card:hover { background: var(--gray3); }
-
-    .produit-tag {
-      display: inline-block;
-      padding: 3px 10px;
-      background: rgba(204,253,85,0.1);
-      color: var(--green);
-      border-radius: 4px;
-      font-size: 0.7rem;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      margin-bottom: 18px;
-    }
-
-    .produit-card h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 12px; }
-    .produit-card p { color: var(--text-muted); font-size: 0.88rem; line-height: 1.7; }
-
-    .produit-list {
-      list-style: none;
-      margin-top: 16px;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
-    .produit-list li {
-      font-size: 0.85rem;
-      color: var(--text-muted);
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .produit-list li::before {
-      content: '→';
-      color: var(--green);
-      font-size: 0.75rem;
-    }
-
-    /* ── CALENDLY / CONTACT ── */
-    .calendly-box {
-      background: var(--gray2);
-      border: 1px solid rgba(204,253,85,0.2);
-      border-radius: 16px;
-      padding: 48px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      gap: 20px;
-    }
-
-    .calendly-icon {
-      width: 64px; height: 64px;
-      background: rgba(204,253,85,0.1);
-      border-radius: 16px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.8rem;
-    }
-
-    .calendly-box h3 {
-      font-size: 1.3rem;
-      font-weight: 700;
-    }
-    .calendly-box p {
-      color: var(--text-muted);
-      font-size: 0.92rem;
-      max-width: 340px;
-      line-height: 1.7;
-    }
+    .footer-copy { font-size: 0.82rem; color: var(--text-muted); }
 
     /* ── MOBILE ── */
     @media (max-width: 900px) {
@@ -795,34 +633,23 @@
       .hero-sub { font-size: 1rem; }
       .hero-actions { flex-direction: column; }
       .hero-actions a { text-align: center; justify-content: center; }
-      .hero-stats { gap: 28px; margin-top: 48px; }
-      .stat-num { font-size: 1.8rem; }
 
-      .ps-grid { grid-template-columns: 1fr; gap: 2px; }
-      .ps-card { padding: 32px 24px; }
-      .ps-card:first-child { border-radius: 12px 12px 0 0; }
-      .ps-card:last-child { border-radius: 0 0 12px 12px; }
+      .steps { grid-template-columns: 1fr 1fr; }
+      .step-card:first-child { border-radius: 12px 0 0 0; }
+      .step-card:nth-child(2) { border-radius: 0 12px 0 0; }
+      .step-card:nth-child(3) { border-radius: 0 0 0 12px; }
+      .step-card:last-child { border-radius: 0 0 12px 0; }
 
-      .services-grid { grid-template-columns: 1fr; gap: 2px; }
-      .service-card:first-child { border-radius: 12px 12px 0 0; }
-      .service-card:last-child { border-radius: 0 0 12px 12px; }
+      .avantages-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
 
-      .pillars-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
-      .pillar-card { padding: 24px 18px; }
+      .sim-wrap { padding: 24px 16px; }
+      .sim-breakdown { grid-template-columns: 1fr; gap: 10px; }
+      .sim-result-main { font-size: 2.8rem; }
 
-      .clienteles-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
-      .client-card { padding: 20px 16px; }
-
-      .produits-grid { grid-template-columns: 1fr; gap: 2px; }
-      .produit-card:first-child { border-radius: 12px 12px 0 0; }
-      .produit-card:last-child { border-radius: 0 0 12px 12px; }
-
-      .nfc-inner { grid-template-columns: 1fr; gap: 40px; }
-      .nfc-visual { height: 220px; }
-      .nfc-rings span:nth-child(3) { display: none; }
-
-      .contact-inner { grid-template-columns: 1fr; gap: 40px; }
-      .calendly-box { padding: 32px 20px; }
+      .cta-inner { padding: 0; }
+      .cta-actions { flex-direction: column; align-items: stretch; }
+      .cta-actions a { text-align: center; justify-content: center; }
+      .cta-form-wrap { padding: 28px 20px; }
 
       .section-title { font-size: 1.8rem; }
 
@@ -830,9 +657,12 @@
     }
 
     @media (max-width: 480px) {
-      .pillars-grid { grid-template-columns: 1fr; }
-      .clienteles-grid { grid-template-columns: 1fr; }
-      .hero-stats { flex-wrap: wrap; gap: 20px; }
+      .steps { grid-template-columns: 1fr; }
+      .step-card:first-child { border-radius: 12px 12px 0 0; }
+      .step-card:nth-child(2) { border-radius: 0; }
+      .step-card:nth-child(3) { border-radius: 0; }
+      .step-card:last-child { border-radius: 0 0 12px 12px; }
+      .avantages-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -840,22 +670,20 @@
 
 <!-- MOBILE MENU -->
 <div class="mobile-menu" id="mobileMenu">
-  <a href="#services" onclick="closeMenu()">Services</a>
-  <a href="#clienteles" onclick="closeMenu()">Clientèles</a>
-  <a href="#produits" onclick="closeMenu()">Produits</a>
-  <a href="plaque-nfc.html" onclick="closeMenu()">Plaque NFC</a>
+  <a href="../" onclick="closeMenu()">Accueil</a>
+  <a href="#comment-ca-marche" onclick="closeMenu()">Comment ça marche</a>
+  <a href="#simulateur" onclick="closeMenu()">Simulateur</a>
   <a href="#contact" onclick="closeMenu()">Contact</a>
   <a href="https://wa.me/message/SCE7XKAHGA56E1" target="_blank" class="mob-cta" onclick="closeMenu()">💬 WhatsApp</a>
 </div>
 
 <!-- NAV -->
 <nav>
-  <a href="index.html" class="nav-logo"><img src="logo-centr.png" alt="Centr Supply" /></a>
+  <a href="../" class="nav-logo"><img src="../logo-centr.png" alt="Centr Supply" /></a>
   <ul class="nav-links">
-    <li><a href="#services">Services</a></li>
-    <li><a href="#clienteles">Clientèles</a></li>
-    <li><a href="#produits">Produits</a></li>
-    <li><a href="plaque-nfc.html">Plaque NFC</a></li>
+    <li><a href="../">Accueil</a></li>
+    <li><a href="#comment-ca-marche">Comment ça marche</a></li>
+    <li><a href="#simulateur">Simulateur</a></li>
     <li><a href="#contact">Contact</a></li>
     <li><a href="https://wa.me/message/SCE7XKAHGA56E1" target="_blank" class="nav-cta">WhatsApp</a></li>
   </ul>
@@ -866,285 +694,260 @@
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-eyebrow">Distributeur B2B — France</div>
-  <h1>Un seul partenaire.<br /><em>Tout ce dont vous avez besoin.</em></h1>
+  <div class="hero-eyebrow">Plaque NFC — Centr Supply</div>
+  <h1>Un tap.<br /><em>Des avis qui explosent.</em></h1>
   <p class="hero-sub">
-    Fini les 10 fournisseurs différents, les délais interminables et les devis qui s'accumulent. Centr Supply centralise votre approvisionnement pour vous faire gagner du temps, de l'argent et de la sérénité.
+    La plaque NFC Centr Supply transforme chaque client satisfait en ambassadeur. En un simple geste, ils laissent un avis Google ou vous suivent sur les réseaux — sans application, sans friction, sans effort.
   </p>
   <div class="hero-actions">
-    <a href="#contact" class="btn-primary">Nous contacter →</a>
-    <a href="plaque-nfc.html" class="btn-secondary">Découvrir la Plaque NFC</a>
+    <a href="#simulateur" class="btn-primary">Calculer mon gain →</a>
+    <a href="#contact" class="btn-secondary">Je veux ma plaque</a>
   </div>
-  <div class="hero-stats">
-    <div class="stat-item">
-      <div class="stat-num">7/7</div>
-      <div class="stat-label">Disponibilité</div>
+</section>
+
+<!-- COMMENT CA MARCHE -->
+<section class="how-section" id="comment-ca-marche">
+  <div class="section-label">Fonctionnement</div>
+  <div class="section-title">Simple comme un tap</div>
+  <div class="steps">
+    <div class="step-card">
+      <div class="step-num">01</div>
+      <h3>On configure votre espace</h3>
+      <p>Nous créons votre page personnalisée sur notre outil interne — une sorte de Linktree maison — où tous vos liens sont centralisés : Google, Instagram, TikTok, site web, menu…</p>
     </div>
-    <div class="stat-item">
-      <div class="stat-num">1</div>
-      <div class="stat-label">Interlocuteur unique</div>
+    <div class="step-card">
+      <div class="step-num">02</div>
+      <h3>On vient installer sur place</h3>
+      <p>Notre équipe se déplace directement chez vous pour installer la plaque NFC à l'endroit stratégique de votre établissement. Zéro effort de votre côté.</p>
     </div>
-    <div class="stat-item">
-      <div class="stat-num">6h</div>
-      <div class="stat-label">Réactivité maximale</div>
+    <div class="step-card">
+      <div class="step-num">03</div>
+      <h3>Votre client tappe</h3>
+      <p>Le client approche son smartphone. En moins d'une seconde, il atterrit sur votre page et choisit l'action qui lui convient : laisser un avis, vous suivre, consulter votre carte…</p>
+    </div>
+    <div class="step-card">
+      <div class="step-num">04</div>
+      <h3>Votre réputation décolle</h3>
+      <p>Plus d'avis = meilleur référencement local = plus de clients = plus de revenus. L'effet boule de neige, automatiquement.</p>
     </div>
   </div>
 </section>
 
-<!-- PROBLEM / SOLUTION -->
-<section class="problem-section" id="services">
-  <div class="section-label">Le constat</div>
-  <div class="section-title">On ne vend pas des produits.<br />On vend des solutions.</div>
-  <div class="ps-grid">
-    <div class="ps-card">
-      <span class="ps-tag tag-problem">Le problème</span>
-      <h3>Jongler avec plusieurs fournisseurs, c'est épuisant.</h3>
-      <p>Chaque commande devient un projet. Les délais s'accumulent, les interlocuteurs se multiplient et la charge administrative explose.</p>
-      <ul>
-        <li>5 à 10 fournisseurs à gérer</li>
-        <li>Délais imprévus et ruptures de stock</li>
-        <li>Aucune flexibilité en cas d'urgence</li>
-        <li>Perte de temps et d'énergie massive</li>
-      </ul>
-    </div>
-    <div class="ps-card solution">
-      <span class="ps-tag tag-solution">La solution Centr Supply</span>
-      <h3>Un seul appel. Un seul partenaire. Tout livré.</h3>
-      <p>Nous centralisons votre approvisionnement B2B pour vous permettre de vous concentrer sur ce qui compte vraiment : votre activité.</p>
-      <ul>
-        <li>Un interlocuteur unique pour tout</li>
-        <li>Réactivité & disponibilité 7j/7</li>
-        <li>Livraison rapide et fiable</li>
-        <li>Accompagnement & conseil personnalisé</li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-<!-- SERVICES -->
-<section style="background: var(--black);">
-  <div class="section-label">Ce qu'on fait</div>
-  <div class="section-title">Des solutions B2B sur mesure</div>
-  <div class="section-desc">Approvisionnement, distribution et conseil : nous intervenons à chaque étape pour garantir fluidité et performance.</div>
-  <div class="services-grid">
-    <div class="service-card">
-      <div class="service-icon">📦</div>
-      <h3>Approvisionnement centralisé</h3>
-      <p>Nous sourçons et regroupons tous vos besoins auprès d'un réseau de fournisseurs sélectionnés, pour vous simplifier la vie.</p>
-    </div>
-    <div class="service-card">
-      <div class="service-icon">🚚</div>
-      <h3>Distribution & livraison</h3>
-      <p>Livraison rapide et fiable, gérée de A à Z. Vous commandez, on livre. Simple, sans surprise.</p>
-    </div>
-    <div class="service-card">
-      <div class="service-icon">🤝</div>
-      <h3>Conseil & accompagnement</h3>
-      <p>Nous ne sommes pas juste un fournisseur. Nous sommes votre partenaire : conseils, optimisation, recommandations.</p>
-    </div>
-  </div>
-</section>
-
-<!-- PILLARS -->
-<section class="pillars-section" id="avantages">
-  <div class="section-label">Pourquoi Centr Supply</div>
-  <div class="section-title">Les piliers de notre engagement</div>
-  <div class="pillars-grid">
-    <div class="pillar-card">
-      <div class="pillar-num">01</div>
-      <h3>Réactivité</h3>
-      <p>Une demande urgente ? On répond. 7 jours sur 7, sans délai superflu.</p>
-    </div>
-    <div class="pillar-card">
-      <div class="pillar-num">02</div>
-      <h3>Disponibilité</h3>
-      <p>Toujours joignable, toujours présent. Votre activité ne s'arrête pas, nous non plus.</p>
-    </div>
-    <div class="pillar-card">
-      <div class="pillar-num">03</div>
-      <h3>Flexibilité</h3>
-      <p>Petites ou grandes quantités, commandes ponctuelles ou récurrentes : on s'adapte.</p>
-    </div>
-    <div class="pillar-card">
-      <div class="pillar-num">04</div>
-      <h3>Fiabilité</h3>
-      <p>Délais tenus, qualité constante. Vous pouvez compter sur nous, à chaque commande.</p>
-    </div>
-  </div>
-</section>
-
-<!-- CLIENTÈLES -->
-<section class="clienteles-section" id="clienteles">
-  <div class="section-label">On travaille avec vous</div>
-  <div class="section-title">Nos secteurs d'activité</div>
-  <p class="section-desc">Peu importe votre domaine, si vous avez besoin de vous approvisionner régulièrement, on a une solution pour vous.</p>
-  <div class="clienteles-grid">
-    <div class="client-card">
-      <div class="client-card-icon">🍽️</div>
-      <h3>Restauration</h3>
-      <p>Restaurants, brasseries, fast-foods, traiteurs. Consommables, emballages, équipements.</p>
-    </div>
-    <div class="client-card">
-      <div class="client-card-icon">🛍️</div>
-      <h3>Commerce de détail</h3>
-      <p>Boutiques, épiceries, supérettes. Réassort, packaging, PLV et produits revendeurs.</p>
-    </div>
-    <div class="client-card">
-      <div class="client-card-icon">🏨</div>
-      <h3>Hôtellerie</h3>
-      <p>Hôtels, résidences, hébergements. Linge, produits d'accueil, consommables quotidiens.</p>
-    </div>
-    <div class="client-card">
-      <div class="client-card-icon">🔨</div>
-      <h3>Artisans</h3>
-      <p>Plombiers, électriciens, menuisiers, peintres. Fournitures et consommables de chantier.</p>
-    </div>
-    <div class="client-card">
-      <div class="client-card-icon">🧹</div>
-      <h3>Sociétés de nettoyage</h3>
-      <p>Entreprises de propreté et entretien. Produits d'hygiène, équipements et consommables en volume.</p>
-    </div>
-    <div class="client-card">
-      <div class="client-card-icon">💇</div>
-      <h3>Secteur beauté</h3>
-      <p>Salons de coiffure, instituts, barbiers. Produits professionnels, outillage et consommables.</p>
-    </div>
-    <div class="client-card">
-      <div class="client-card-icon">🔧</div>
-      <h3>Garages & auto</h3>
-      <p>Mécaniciens, carrossiers, centres auto. Produits d'entretien, consommables et fournitures atelier.</p>
-    </div>
-    <div class="client-card">
-      <div class="client-card-icon">🏢</div>
-      <h3>Bureaux & entreprises</h3>
-      <p>TPE, PME et grands comptes. Fournitures de bureau, hygiène, équipements et bien plus.</p>
-    </div>
-  </div>
-</section>
-
-<!-- PRODUITS -->
-<section class="produits-section" id="produits">
-  <div class="section-label">Ce qu'on fournit</div>
-  <div class="section-title">Une offre complète,<br />adaptée à chaque besoin.</div>
-  <div class="produits-grid">
-    <div class="produit-card">
-      <span class="produit-tag">Consommables</span>
-      <h3>Produits du quotidien</h3>
-      <p>Tout ce que vous utilisez régulièrement et devez réapprovisionner. On centralise, on livre, vous n'y pensez plus.</p>
-      <ul class="produit-list">
-        <li>Hygiène & entretien</li>
-        <li>Emballages & conditionnement</li>
-        <li>Fournitures diverses</li>
-        <li>Produits jetables professionnels</li>
-      </ul>
-    </div>
-    <div class="produit-card">
-      <span class="produit-tag">Sur mesure</span>
-      <h3>Produits personnalisés</h3>
-      <p>Vous avez une identité de marque forte ? On fabrique et fournit des produits à votre image, en petit ou grand volume.</p>
-      <ul class="produit-list">
-        <li>Emballages à votre marque</li>
-        <li>Goodies & objets pub</li>
-        <li>Packaging personnalisé</li>
-        <li>Textiles & équipements brandés</li>
-      </ul>
-    </div>
-    <div class="produit-card">
-      <span class="produit-tag">Revendeurs</span>
-      <h3>Nouvelle gamme produit</h3>
-      <p>Vous cherchez à élargir votre catalogue et augmenter vos marges ? On vous propose des gammes exclusives prêtes à revendre.</p>
-      <ul class="produit-list">
-        <li>Gammes exclusives B2B</li>
-        <li>Marges revendeur attractives</li>
-        <li>Accompagnement au lancement</li>
-        <li>Plaque NFC & outils digitaux</li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-<!-- NFC TEASER -->
-<section class="nfc-teaser">
-  <div class="nfc-inner">
-    <div class="nfc-visual">
-      <div class="nfc-rings">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-      <div class="nfc-card-mock">
-        <div class="nfc-icon">📶</div>
-        <span>Plaque NFC</span>
-      </div>
-    </div>
-    <div class="nfc-content">
-      <div class="section-label">Nouveau produit</div>
-      <div class="section-title">Boostez vos avis Google en un simple tap.</div>
-      <p class="section-desc">La plaque NFC Centr Supply permet à vos clients de laisser un avis Google, de vous suivre sur les réseaux ou d'accéder à votre fiche en un seul geste. Installez-la, et regardez votre réputation en ligne décoller.</p>
-      <ul class="nfc-bullets">
-        <li>Plus d'avis Google = meilleur référencement local</li>
-        <li>Installation ultra simple, aucune app requise</li>
-        <li>Fonctionne avec tous les smartphones</li>
-        <li>Simulateur de revenus disponible</li>
-      </ul>
-      <a href="plaque-nfc.html" class="btn-primary">Découvrir la plaque NFC →</a>
-    </div>
-  </div>
-</section>
-
-<!-- CONTACT -->
-<section class="contact-section" id="contact">
-  <div class="contact-inner">
+<!-- OUTIL INTERNE -->
+<section style="background: var(--black); padding: 80px 60px;">
+  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; max-width: 1100px; margin: 0 auto;">
     <div>
-      <div class="section-label">Parlons-en</div>
-      <div class="section-title">Prêt à simplifier votre approvisionnement ?</div>
-      <p class="section-desc" style="margin-bottom: 0;">Contactez-nous directement — par téléphone, mail ou WhatsApp. On vous répond sous moins de 12h</p>
-      <div class="contact-cards">
-        <a href="tel:+33775758121" class="contact-card">
-          <div class="contact-card-icon">📞</div>
-          <div class="contact-card-info">
-            <div class="contact-card-label">Téléphone</div>
-            <div class="contact-card-value">+33 7 75 75 81 21</div>
-          </div>
-        </a>
-        <a href="mailto:contact@centrsupply.com" class="contact-card">
-          <div class="contact-card-icon">✉️</div>
-          <div class="contact-card-info">
-            <div class="contact-card-label">Email</div>
-            <div class="contact-card-value">contact@centrsupply.com</div>
-          </div>
-        </a>
-        <a href="https://wa.me/message/SCE7XKAHGA56E1" target="_blank" class="contact-card">
-          <div class="contact-card-icon">💬</div>
-          <div class="contact-card-info">
-            <div class="contact-card-label">WhatsApp</div>
-            <div class="contact-card-value">Démarrer une conversation</div>
-          </div>
-        </a>
+      <div class="section-label">Notre outil exclusif</div>
+      <div class="section-title">Tous vos liens en un seul endroit.</div>
+      <p class="section-desc" style="margin-bottom: 28px;">Nous avons développé en interne un outil de centralisation de liens — notre propre version de Linktree, conçue spécifiquement pour les professionnels. Une page unique, à votre image, qui regroupe tout ce qui compte pour votre activité.</p>
+      <ul style="list-style: none; display: flex; flex-direction: column; gap: 12px;">
+        <li style="display: flex; align-items: center; gap: 10px; font-size: 0.92rem; color: var(--text-muted);"><span style="color: var(--green); font-weight: 700;">✓</span> Fiche Google My Business</li>
+        <li style="display: flex; align-items: center; gap: 10px; font-size: 0.92rem; color: var(--text-muted);"><span style="color: var(--green); font-weight: 700;">✓</span> Réseaux sociaux (Instagram, TikTok, Facebook…)</li>
+        <li style="display: flex; align-items: center; gap: 10px; font-size: 0.92rem; color: var(--text-muted);"><span style="color: var(--green); font-weight: 700;">✓</span> Site web, menu, catalogue en ligne</li>
+        <li style="display: flex; align-items: center; gap: 10px; font-size: 0.92rem; color: var(--text-muted);"><span style="color: var(--green); font-weight: 700;">✓</span> Lien WhatsApp, numéro de contact</li>
+        <li style="display: flex; align-items: center; gap: 10px; font-size: 0.92rem; color: var(--text-muted);"><span style="color: var(--green); font-weight: 700;">✓</span> Modifiable à tout moment, en temps réel</li>
+      </ul>
+    </div>
+    <div style="background: var(--gray2); border: 1px solid rgba(204,253,85,0.15); border-radius: 16px; padding: 36px; display: flex; flex-direction: column; gap: 0;">
+      <div style="font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 20px; text-align: center;">Aperçu de votre page</div>
+      <div style="background: var(--black); border-radius: 12px; padding: 28px; display: flex; flex-direction: column; align-items: center; gap: 12px;">
+        <div style="width: 52px; height: 52px; background: rgba(204,253,85,0.15); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.4rem;">🏪</div>
+        <div style="font-weight: 700; font-size: 1rem;">Mon Établissement</div>
+        <div style="font-size: 0.78rem; color: var(--text-muted);">Votre slogan ou description courte</div>
+        <div style="width: 100%; display: flex; flex-direction: column; gap: 8px; margin-top: 8px;">
+          <div style="background: var(--gray2); border-radius: 8px; padding: 12px 16px; font-size: 0.82rem; text-align: center; border: 1px solid rgba(255,255,255,0.08);">⭐ Laissez un avis Google</div>
+          <div style="background: var(--gray2); border-radius: 8px; padding: 12px 16px; font-size: 0.82rem; text-align: center; border: 1px solid rgba(255,255,255,0.08);">📲 Suivez-nous sur Instagram</div>
+          <div style="background: rgba(204,253,85,0.1); border-radius: 8px; padding: 12px 16px; font-size: 0.82rem; text-align: center; border: 1px solid rgba(204,253,85,0.2); color: var(--green);">🌐 Voir notre site web</div>
+        </div>
       </div>
     </div>
-    <div>
-      <div class="calendly-box">
-        <div class="calendly-icon">📅</div>
-        <h3>Réservez un appel de 15 min</h3>
-        <p>Discutons de vos besoins, de votre activité et de comment Centr Supply peut vous simplifier la vie. C'est gratuit, sans engagement.</p>
-        <a href="https://calendly.com/centrsupply/30min" target="_blank" class="btn-primary" style="margin-top: 8px;">
-          Choisir mon créneau →
-        </a>
-        <p style="font-size: 0.78rem; color: rgba(136,136,136,0.6);">Appel téléphonique · 15 minutes · Sans engagement</p>
+  </div>
+</section>
+
+<!-- AVANTAGES -->
+<section class="avantages-section">
+  <div class="section-label">Pourquoi choisir la NFC</div>
+  <div class="section-title">Votre réputation en ligne, automatisée.</div>
+  <div class="avantages-grid">
+    <div class="av-card">
+      <span class="av-icon">⭐</span>
+      <h3>Plus d'avis Google</h3>
+      <p>Chaque client satisfait peut laisser un avis en 5 secondes. Multipliez vos avis et boostez votre positionnement local.</p>
+    </div>
+    <div class="av-card">
+      <span class="av-icon">📱</span>
+      <h3>Compatible tous smartphones</h3>
+      <p>NFC intégré nativement sur iOS et Android depuis 2020. Aucune application à télécharger, zéro friction.</p>
+    </div>
+    <div class="av-card">
+      <span class="av-icon">🚀</span>
+      <h3>Meilleur référencement local</h3>
+      <p>Google favorise les entreprises avec de nombreux avis récents. Plus d'avis = plus de visibilité = plus de clients.</p>
+    </div>
+    <div class="av-card">
+      <span class="av-icon">📊</span>
+      <h3>Croissance des réseaux sociaux</h3>
+      <p>Configurez la plaque pour rediriger vers votre Instagram, TikTok ou Facebook et gagnez des abonnés organiques.</p>
+    </div>
+    <div class="av-card">
+      <span class="av-icon">🔁</span>
+      <h3>Lien modifiable à tout moment</h3>
+      <p>Changez la destination de votre plaque quand vous voulez. Promotions, événements, nouveautés — adaptez en temps réel.</p>
+    </div>
+    <div class="av-card">
+      <span class="av-icon">💰</span>
+      <h3>ROI immédiat et mesurable</h3>
+      <p>Chaque avis supplémentaire génère de la visibilité et des conversions. L'investissement se rentabilise en quelques jours.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SIMULATEUR -->
+<section class="simulator-section" id="simulateur">
+  <div style="text-align: center;">
+    <div class="section-label">Simulateur</div>
+    <div class="section-title" style="margin: 0 auto 12px;">Combien ça peut vous rapporter ?</div>
+    <p class="section-desc" style="margin: 0 auto;">Estimez l'impact financier des avis et abonnés supplémentaires générés par votre plaque NFC.</p>
+  </div>
+
+  <div class="sim-wrap">
+    <div class="sim-title">🧮 Mon simulateur de revenus</div>
+    <p class="sim-desc">Ajustez les curseurs selon votre situation pour voir le potentiel de la plaque NFC.</p>
+
+    <div class="sim-type-toggle">
+      <button class="sim-toggle-btn active" onclick="setType('google')" id="btn-google">⭐ Avis Google</button>
+      <button class="sim-toggle-btn" onclick="setType('social')" id="btn-social">📲 Réseaux sociaux</button>
+    </div>
+
+    <div class="sim-sliders">
+      <div class="slider-group">
+        <label>
+          <span id="label-metric">Avis supplémentaires / mois</span>
+          <span id="val-metric">30</span>
+        </label>
+        <input type="range" id="slider-metric" min="5" max="200" value="30" step="5" oninput="update()" />
       </div>
+
+      <div class="slider-group">
+        <label>
+          <span id="label-taux">Taux de conversion en client (%)</span>
+          <span id="val-taux">8%</span>
+        </label>
+        <input type="range" id="slider-taux" min="1" max="30" value="8" step="1" oninput="update()" />
+      </div>
+
+      <div class="slider-group">
+        <label>
+          <span>Panier moyen par client (€)</span>
+          <span id="val-panier">80 €</span>
+        </label>
+        <input type="range" id="slider-panier" min="10" max="500" value="80" step="5" oninput="update()" />
+      </div>
+    </div>
+
+    <div class="sim-result">
+      <div class="sim-result-label">Revenu supplémentaire estimé</div>
+      <div class="sim-result-main" id="result-monthly">192 €</div>
+      <div class="sim-result-sub">par mois grâce à votre plaque NFC</div>
+      <div class="sim-breakdown">
+        <div class="breakdown-item">
+          <div class="breakdown-val" id="bd-metric">30</div>
+          <div class="breakdown-label" id="bd-metric-label">Avis / mois</div>
+        </div>
+        <div class="breakdown-item">
+          <div class="breakdown-val" id="bd-clients">2</div>
+          <div class="breakdown-label">Nouveaux clients / mois</div>
+        </div>
+        <div class="breakdown-item">
+          <div class="breakdown-val" id="bd-annual">2 304 €</div>
+          <div class="breakdown-label">Gain annuel estimé</div>
+        </div>
+      </div>
+    </div>
+    <p class="sim-note">* Estimation indicative basée sur des moyennes sectorielles. Les résultats réels varient selon votre secteur d'activité, votre localisation et la qualité de vos prestations.</p>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section" id="contact">
+  <div class="cta-inner">
+    <div class="section-label">Passez à l'action</div>
+    <div class="section-title">Prêt à booster votre réputation ?</div>
+    <p class="section-desc">Contactez-nous dès maintenant. On vous explique tout, on configure votre plaque selon vos besoins et on vous livre rapidement.</p>
+
+    <div class="cta-actions">
+      <a href="https://wa.me/message/SCE7XKAHGA56E1" target="_blank" class="btn-primary">
+        💬 Discuter sur WhatsApp
+      </a>
+      <a href="tel:+33775758121" class="btn-secondary">
+        📞 +33 7 75 75 81 21
+      </a>
+    </div>
+
+    <div class="cta-form-wrap" style="text-align: center; display: flex; flex-direction: column; align-items: center; gap: 20px;">
+      <div style="width: 64px; height: 64px; background: rgba(204,253,85,0.1); border-radius: 16px; display: flex; align-items: center; justify-content: center; font-size: 1.8rem;">📅</div>
+      <div class="form-title">Réservez votre créneau d'installation</div>
+      <p class="form-subtitle" style="max-width: 400px;">On discute de votre projet, on configure votre page, on cale la date d'installation. 30 minutes suffisent.</p>
+      <a href="https://calendly.com/centrsupply/30min" target="_blank" class="btn-primary" style="font-size: 1rem; padding: 18px 36px;">
+        Choisir mon créneau →
+      </a>
+      <p style="font-size: 0.78rem; color: rgba(136,136,136,0.6);">Appel visio ou téléphonique · 30 minutes · Installation incluse · Sans engagement</p>
     </div>
   </div>
 </section>
 
 <!-- FOOTER -->
 <footer>
-  <a href="index.html" class="footer-logo"><img src="logo-centr.png" alt="Centr Supply" /></a>
-  <div class="footer-copy">© 2026 Centr Supply — Distributeur B2B</div>
+  <a href="../" class="footer-logo"><img src="../logo-centr.png" alt="Centr Supply" /></a>
+  <div class="footer-copy">© 2025 Centr Supply — Distributeur B2B</div>
   <div class="footer-copy"><a href="mailto:contact@centrsupply.com" style="color: var(--text-muted); text-decoration: none;">contact@centrsupply.com</a></div>
 </footer>
 
 <script>
+  let simType = 'google';
+
+  function setType(type) {
+    simType = type;
+    document.getElementById('btn-google').classList.toggle('active', type === 'google');
+    document.getElementById('btn-social').classList.toggle('active', type === 'social');
+
+    if (type === 'google') {
+      document.getElementById('label-metric').textContent = 'Avis supplémentaires / mois';
+      document.getElementById('label-taux').textContent = 'Taux de conversion en client (%)';
+      document.getElementById('bd-metric-label').textContent = 'Avis / mois';
+    } else {
+      document.getElementById('label-metric').textContent = 'Abonnés supplémentaires / mois';
+      document.getElementById('label-taux').textContent = 'Taux d\'engagement converti en client (%)';
+      document.getElementById('bd-metric-label').textContent = 'Abonnés / mois';
+    }
+    update();
+  }
+
+  function fmt(n) {
+    return new Intl.NumberFormat('fr-FR').format(Math.round(n));
+  }
+
+  function update() {
+    const metric = parseInt(document.getElementById('slider-metric').value);
+    const taux = parseInt(document.getElementById('slider-taux').value);
+    const panier = parseInt(document.getElementById('slider-panier').value);
+
+    document.getElementById('val-metric').textContent = metric;
+    document.getElementById('val-taux').textContent = taux + '%';
+    document.getElementById('val-panier').textContent = panier + ' €';
+
+    const clients = metric * (taux / 100);
+    const monthly = clients * panier;
+    const annual = monthly * 12;
+
+    document.getElementById('result-monthly').textContent = fmt(monthly) + ' €';
+    document.getElementById('bd-metric').textContent = fmt(metric);
+    document.getElementById('bd-clients').textContent = clients < 1 ? '< 1' : fmt(clients);
+    document.getElementById('bd-annual').textContent = fmt(annual) + ' €';
+  }
+
+  update();
+
   function toggleMenu() {
     const menu = document.getElementById('mobileMenu');
     const btn = document.getElementById('hamburger');
