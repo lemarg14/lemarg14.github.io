@@ -1,0 +1,965 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Plaque NFC — Centr Supply</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --black: #000000;
+      --white: #ffffff;
+      --green: #ccfd55;
+      --gray: #111111;
+      --gray2: #1a1a1a;
+      --gray3: #2a2a2a;
+      --text-muted: #888;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--black);
+      color: var(--white);
+      font-family: 'Inter', sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 60px;
+      background: rgba(0,0,0,0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .nav-logo img {
+      height: 48px;
+      width: auto;
+      display: block;
+    }
+
+    /* ── HAMBURGER ── */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px;
+      background: none;
+      border: none;
+      z-index: 200;
+    }
+    .hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--white);
+      border-radius: 2px;
+      transition: all 0.3s;
+    }
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* ── MOBILE MENU OVERLAY ── */
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.97);
+      z-index: 150;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0;
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a {
+      color: var(--white);
+      text-decoration: none;
+      font-size: 1.6rem;
+      font-weight: 700;
+      padding: 18px 0;
+      letter-spacing: -0.01em;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      width: 80%;
+      text-align: center;
+      transition: color 0.2s;
+    }
+    .mobile-menu a:hover { color: var(--green); }
+    .mobile-menu a:last-child { border-bottom: none; }
+    .mobile-menu .mob-cta {
+      margin-top: 24px;
+      background: var(--green);
+      color: var(--black) !important;
+      padding: 16px 40px;
+      border-radius: 8px;
+      font-size: 1rem !important;
+      font-weight: 800;
+      border: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 36px;
+      list-style: none;
+    }
+    .nav-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.88rem;
+      font-weight: 500;
+      letter-spacing: 0.03em;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--white); }
+
+    .nav-cta {
+      background: var(--green);
+      color: var(--black) !important;
+      padding: 10px 22px;
+      border-radius: 6px;
+      font-weight: 700 !important;
+      font-size: 0.85rem !important;
+      letter-spacing: 0.04em;
+      transition: opacity 0.2s !important;
+    }
+    .nav-cta:hover { opacity: 0.85; }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 140px 60px 80px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -150px; right: -100px;
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(204,253,85,0.1) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -100px; left: -100px;
+      width: 400px; height: 400px;
+      background: radial-gradient(circle, rgba(204,253,85,0.05) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--green);
+      margin-bottom: 28px;
+    }
+    .hero-eyebrow::before {
+      content: '';
+      width: 24px; height: 2px;
+      background: var(--green);
+    }
+
+    .hero h1 {
+      font-size: clamp(2.8rem, 6vw, 5.5rem);
+      font-weight: 900;
+      line-height: 1.0;
+      letter-spacing: -0.03em;
+      max-width: 800px;
+      margin-bottom: 32px;
+    }
+    .hero h1 em {
+      font-style: normal;
+      color: var(--green);
+    }
+
+    .hero-sub {
+      font-size: clamp(1rem, 1.8vw, 1.2rem);
+      color: var(--text-muted);
+      max-width: 560px;
+      line-height: 1.75;
+      margin-bottom: 48px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      background: var(--green);
+      color: var(--black);
+      padding: 16px 32px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      text-decoration: none;
+      letter-spacing: 0.02em;
+      transition: opacity 0.2s, transform 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .btn-primary:hover { opacity: 0.88; transform: translateY(-1px); }
+
+    .btn-secondary {
+      border: 1px solid rgba(255,255,255,0.18);
+      color: var(--white);
+      padding: 16px 32px;
+      border-radius: 8px;
+      font-weight: 500;
+      font-size: 0.95rem;
+      text-decoration: none;
+      transition: border-color 0.2s, background 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .btn-secondary:hover { border-color: var(--green); background: rgba(204,253,85,0.05); }
+
+    /* ── SECTION BASE ── */
+    section { padding: 100px 60px; }
+
+    .section-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--green);
+      margin-bottom: 16px;
+    }
+
+    .section-title {
+      font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      line-height: 1.15;
+      max-width: 700px;
+      margin-bottom: 20px;
+    }
+
+    .section-desc {
+      color: var(--text-muted);
+      font-size: 1.05rem;
+      max-width: 560px;
+      line-height: 1.75;
+    }
+
+    /* ── HOW IT WORKS ── */
+    .how-section { background: var(--gray); }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2px;
+      margin-top: 60px;
+    }
+
+    .step-card {
+      background: var(--gray2);
+      padding: 36px 28px;
+    }
+    .step-card:first-child { border-radius: 12px 0 0 12px; }
+    .step-card:last-child { border-radius: 0 12px 12px 0; }
+
+    .step-num {
+      font-size: 2rem;
+      font-weight: 900;
+      color: var(--green);
+      letter-spacing: -0.04em;
+      margin-bottom: 16px;
+      opacity: 0.4;
+    }
+
+    .step-card h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+    .step-card p {
+      color: var(--text-muted);
+      font-size: 0.88rem;
+      line-height: 1.65;
+    }
+
+    /* ── AVANTAGES ── */
+    .avantages-section { background: var(--black); }
+
+    .avantages-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 60px;
+    }
+
+    .av-card {
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 12px;
+      padding: 36px 28px;
+      transition: border-color 0.3s, background 0.3s;
+    }
+    .av-card:hover {
+      border-color: var(--green);
+      background: rgba(204,253,85,0.03);
+    }
+
+    .av-icon {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      display: block;
+    }
+
+    .av-card h3 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+    .av-card p {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      line-height: 1.7;
+    }
+
+    /* ── SIMULATOR ── */
+    .simulator-section { background: var(--gray); }
+
+    .sim-wrap {
+      max-width: 780px;
+      margin: 60px auto 0;
+      background: var(--gray2);
+      border: 1px solid rgba(204,253,85,0.2);
+      border-radius: 20px;
+      padding: 52px;
+    }
+
+    .sim-title {
+      font-size: 1.5rem;
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+    .sim-desc {
+      color: var(--text-muted);
+      font-size: 0.92rem;
+      margin-bottom: 40px;
+    }
+
+    .sim-type-toggle {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 36px;
+      background: var(--gray3);
+      border-radius: 10px;
+      padding: 4px;
+    }
+
+    .sim-toggle-btn {
+      flex: 1;
+      padding: 10px;
+      border: none;
+      border-radius: 8px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.88rem;
+      font-weight: 600;
+      cursor: pointer;
+      background: transparent;
+      color: var(--text-muted);
+      transition: all 0.2s;
+    }
+    .sim-toggle-btn.active {
+      background: var(--green);
+      color: var(--black);
+    }
+
+    .sim-sliders {
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+      margin-bottom: 36px;
+    }
+
+    .slider-group label {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 12px;
+    }
+    .slider-group label span {
+      color: var(--green);
+      font-size: 1rem;
+      font-weight: 700;
+    }
+
+    input[type="range"] {
+      width: 100%;
+      -webkit-appearance: none;
+      appearance: none;
+      height: 4px;
+      border-radius: 4px;
+      background: var(--gray3);
+      outline: none;
+      cursor: pointer;
+    }
+    input[type="range"]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: var(--green);
+      cursor: pointer;
+      box-shadow: 0 0 0 4px rgba(204,253,85,0.15);
+      transition: box-shadow 0.2s;
+    }
+    input[type="range"]::-webkit-slider-thumb:hover {
+      box-shadow: 0 0 0 8px rgba(204,253,85,0.2);
+    }
+
+    .sim-result {
+      background: var(--black);
+      border-radius: 14px;
+      padding: 36px;
+      text-align: center;
+      border: 1px solid rgba(204,253,85,0.15);
+    }
+
+    .sim-result-label {
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 10px;
+    }
+
+    .sim-result-main {
+      font-size: 3.5rem;
+      font-weight: 900;
+      color: var(--green);
+      letter-spacing: -0.03em;
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+
+    .sim-result-sub {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      margin-bottom: 28px;
+    }
+
+    .sim-breakdown {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .breakdown-item {
+      background: var(--gray2);
+      border-radius: 10px;
+      padding: 16px;
+    }
+    .breakdown-val {
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: var(--white);
+    }
+    .breakdown-label {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+
+    .sim-note {
+      margin-top: 24px;
+      font-size: 0.78rem;
+      color: rgba(136,136,136,0.6);
+      text-align: center;
+      line-height: 1.6;
+    }
+
+    /* ── CTA ── */
+    .cta-section {
+      background: var(--black);
+    }
+
+    .cta-inner {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .cta-inner .section-title {
+      max-width: 600px;
+      margin: 0 auto 20px;
+      font-size: clamp(2rem, 4vw, 3rem);
+    }
+
+    .cta-inner .section-desc {
+      max-width: 500px;
+      margin: 0 auto 48px;
+    }
+
+    .cta-actions {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 60px;
+    }
+
+    /* FORM */
+    .cta-form-wrap {
+      background: var(--gray2);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 20px;
+      padding: 48px;
+      text-align: left;
+    }
+
+    .form-title {
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+    .form-subtitle {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      margin-bottom: 32px;
+    }
+
+    .form-group {
+      margin-bottom: 16px;
+    }
+    .form-group label {
+      display: block;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      background: var(--gray3);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 8px;
+      color: var(--white);
+      font-family: 'Inter', sans-serif;
+      font-size: 0.95rem;
+      padding: 14px 16px;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .form-group select option { background: var(--gray3); }
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus { border-color: var(--green); }
+    .form-group textarea { resize: vertical; min-height: 110px; }
+
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+
+    .btn-form {
+      width: 100%;
+      background: var(--green);
+      color: var(--black);
+      border: none;
+      border-radius: 8px;
+      padding: 16px;
+      font-family: 'Inter', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      letter-spacing: 0.02em;
+      transition: opacity 0.2s;
+      margin-top: 8px;
+    }
+    .btn-form:hover { opacity: 0.85; }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding: 40px 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .footer-logo img {
+      height: 40px;
+      width: auto;
+    }
+    .footer-copy { font-size: 0.82rem; color: var(--text-muted); }
+
+    /* ── MOBILE ── */
+    @media (max-width: 900px) {
+      nav { padding: 14px 20px; }
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+
+      section { padding: 60px 20px; }
+      .hero { padding: 110px 20px 60px; }
+      .hero h1 { font-size: 2.4rem; }
+      .hero-sub { font-size: 1rem; }
+      .hero-actions { flex-direction: column; }
+      .hero-actions a { text-align: center; justify-content: center; }
+
+      .steps { grid-template-columns: 1fr 1fr; }
+      .step-card:first-child { border-radius: 12px 0 0 0; }
+      .step-card:nth-child(2) { border-radius: 0 12px 0 0; }
+      .step-card:nth-child(3) { border-radius: 0 0 0 12px; }
+      .step-card:last-child { border-radius: 0 0 12px 0; }
+
+      .avantages-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+
+      .sim-wrap { padding: 24px 16px; }
+      .sim-breakdown { grid-template-columns: 1fr; gap: 10px; }
+      .sim-result-main { font-size: 2.8rem; }
+
+      .cta-inner { padding: 0; }
+      .cta-actions { flex-direction: column; align-items: stretch; }
+      .cta-actions a { text-align: center; justify-content: center; }
+      .cta-form-wrap { padding: 28px 20px; }
+
+      .section-title { font-size: 1.8rem; }
+
+      footer { padding: 28px 20px; flex-direction: column; align-items: flex-start; gap: 10px; }
+    }
+
+    @media (max-width: 480px) {
+      .steps { grid-template-columns: 1fr; }
+      .step-card:first-child { border-radius: 12px 12px 0 0; }
+      .step-card:nth-child(2) { border-radius: 0; }
+      .step-card:nth-child(3) { border-radius: 0; }
+      .step-card:last-child { border-radius: 0 0 12px 12px; }
+      .avantages-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html" onclick="closeMenu()">Accueil</a>
+  <a href="#comment-ca-marche" onclick="closeMenu()">Comment ça marche</a>
+  <a href="#simulateur" onclick="closeMenu()">Simulateur</a>
+  <a href="#contact" onclick="closeMenu()">Contact</a>
+  <a href="https://wa.me/message/SCE7XKAHGA56E1" target="_blank" class="mob-cta" onclick="closeMenu()">💬 WhatsApp</a>
+</div>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo"><img src="logo-centr.png" alt="Centr Supply" /></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Accueil</a></li>
+    <li><a href="#comment-ca-marche">Comment ça marche</a></li>
+    <li><a href="#simulateur">Simulateur</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="https://wa.me/message/SCE7XKAHGA56E1" target="_blank" class="nav-cta">WhatsApp</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-eyebrow">Plaque NFC — Centr Supply</div>
+  <h1>Un tap.<br /><em>Des avis qui explosent.</em></h1>
+  <p class="hero-sub">
+    La plaque NFC Centr Supply transforme chaque client satisfait en ambassadeur. En un simple geste, ils laissent un avis Google ou vous suivent sur les réseaux — sans application, sans friction, sans effort.
+  </p>
+  <div class="hero-actions">
+    <a href="#simulateur" class="btn-primary">Calculer mon gain →</a>
+    <a href="#contact" class="btn-secondary">Je veux ma plaque</a>
+  </div>
+</section>
+
+<!-- COMMENT CA MARCHE -->
+<section class="how-section" id="comment-ca-marche">
+  <div class="section-label">Fonctionnement</div>
+  <div class="section-title">Simple comme un tap</div>
+  <div class="steps">
+    <div class="step-card">
+      <div class="step-num">01</div>
+      <h3>On configure votre espace</h3>
+      <p>Nous créons votre page personnalisée sur notre outil interne — une sorte de Linktree maison — où tous vos liens sont centralisés : Google, Instagram, TikTok, site web, menu…</p>
+    </div>
+    <div class="step-card">
+      <div class="step-num">02</div>
+      <h3>On vient installer sur place</h3>
+      <p>Notre équipe se déplace directement chez vous pour installer la plaque NFC à l'endroit stratégique de votre établissement. Zéro effort de votre côté.</p>
+    </div>
+    <div class="step-card">
+      <div class="step-num">03</div>
+      <h3>Votre client tappe</h3>
+      <p>Le client approche son smartphone. En moins d'une seconde, il atterrit sur votre page et choisit l'action qui lui convient : laisser un avis, vous suivre, consulter votre carte…</p>
+    </div>
+    <div class="step-card">
+      <div class="step-num">04</div>
+      <h3>Votre réputation décolle</h3>
+      <p>Plus d'avis = meilleur référencement local = plus de clients = plus de revenus. L'effet boule de neige, automatiquement.</p>
+    </div>
+  </div>
+</section>
+
+<!-- OUTIL INTERNE -->
+<section style="background: var(--black); padding: 80px 60px;">
+  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; max-width: 1100px; margin: 0 auto;">
+    <div>
+      <div class="section-label">Notre outil exclusif</div>
+      <div class="section-title">Tous vos liens en un seul endroit.</div>
+      <p class="section-desc" style="margin-bottom: 28px;">Nous avons développé en interne un outil de centralisation de liens — notre propre version de Linktree, conçue spécifiquement pour les professionnels. Une page unique, à votre image, qui regroupe tout ce qui compte pour votre activité.</p>
+      <ul style="list-style: none; display: flex; flex-direction: column; gap: 12px;">
+        <li style="display: flex; align-items: center; gap: 10px; font-size: 0.92rem; color: var(--text-muted);"><span style="color: var(--green); font-weight: 700;">✓</span> Fiche Google My Business</li>
+        <li style="display: flex; align-items: center; gap: 10px; font-size: 0.92rem; color: var(--text-muted);"><span style="color: var(--green); font-weight: 700;">✓</span> Réseaux sociaux (Instagram, TikTok, Facebook…)</li>
+        <li style="display: flex; align-items: center; gap: 10px; font-size: 0.92rem; color: var(--text-muted);"><span style="color: var(--green); font-weight: 700;">✓</span> Site web, menu, catalogue en ligne</li>
+        <li style="display: flex; align-items: center; gap: 10px; font-size: 0.92rem; color: var(--text-muted);"><span style="color: var(--green); font-weight: 700;">✓</span> Lien WhatsApp, numéro de contact</li>
+        <li style="display: flex; align-items: center; gap: 10px; font-size: 0.92rem; color: var(--text-muted);"><span style="color: var(--green); font-weight: 700;">✓</span> Modifiable à tout moment, en temps réel</li>
+      </ul>
+    </div>
+    <div style="background: var(--gray2); border: 1px solid rgba(204,253,85,0.15); border-radius: 16px; padding: 36px; display: flex; flex-direction: column; gap: 0;">
+      <div style="font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 20px; text-align: center;">Aperçu de votre page</div>
+      <div style="background: var(--black); border-radius: 12px; padding: 28px; display: flex; flex-direction: column; align-items: center; gap: 12px;">
+        <div style="width: 52px; height: 52px; background: rgba(204,253,85,0.15); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.4rem;">🏪</div>
+        <div style="font-weight: 700; font-size: 1rem;">Mon Établissement</div>
+        <div style="font-size: 0.78rem; color: var(--text-muted);">Votre slogan ou description courte</div>
+        <div style="width: 100%; display: flex; flex-direction: column; gap: 8px; margin-top: 8px;">
+          <div style="background: var(--gray2); border-radius: 8px; padding: 12px 16px; font-size: 0.82rem; text-align: center; border: 1px solid rgba(255,255,255,0.08);">⭐ Laissez un avis Google</div>
+          <div style="background: var(--gray2); border-radius: 8px; padding: 12px 16px; font-size: 0.82rem; text-align: center; border: 1px solid rgba(255,255,255,0.08);">📲 Suivez-nous sur Instagram</div>
+          <div style="background: rgba(204,253,85,0.1); border-radius: 8px; padding: 12px 16px; font-size: 0.82rem; text-align: center; border: 1px solid rgba(204,253,85,0.2); color: var(--green);">🌐 Voir notre site web</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AVANTAGES -->
+<section class="avantages-section">
+  <div class="section-label">Pourquoi choisir la NFC</div>
+  <div class="section-title">Votre réputation en ligne, automatisée.</div>
+  <div class="avantages-grid">
+    <div class="av-card">
+      <span class="av-icon">⭐</span>
+      <h3>Plus d'avis Google</h3>
+      <p>Chaque client satisfait peut laisser un avis en 5 secondes. Multipliez vos avis et boostez votre positionnement local.</p>
+    </div>
+    <div class="av-card">
+      <span class="av-icon">📱</span>
+      <h3>Compatible tous smartphones</h3>
+      <p>NFC intégré nativement sur iOS et Android depuis 2020. Aucune application à télécharger, zéro friction.</p>
+    </div>
+    <div class="av-card">
+      <span class="av-icon">🚀</span>
+      <h3>Meilleur référencement local</h3>
+      <p>Google favorise les entreprises avec de nombreux avis récents. Plus d'avis = plus de visibilité = plus de clients.</p>
+    </div>
+    <div class="av-card">
+      <span class="av-icon">📊</span>
+      <h3>Croissance des réseaux sociaux</h3>
+      <p>Configurez la plaque pour rediriger vers votre Instagram, TikTok ou Facebook et gagnez des abonnés organiques.</p>
+    </div>
+    <div class="av-card">
+      <span class="av-icon">🔁</span>
+      <h3>Lien modifiable à tout moment</h3>
+      <p>Changez la destination de votre plaque quand vous voulez. Promotions, événements, nouveautés — adaptez en temps réel.</p>
+    </div>
+    <div class="av-card">
+      <span class="av-icon">💰</span>
+      <h3>ROI immédiat et mesurable</h3>
+      <p>Chaque avis supplémentaire génère de la visibilité et des conversions. L'investissement se rentabilise en quelques jours.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SIMULATEUR -->
+<section class="simulator-section" id="simulateur">
+  <div style="text-align: center;">
+    <div class="section-label">Simulateur</div>
+    <div class="section-title" style="margin: 0 auto 12px;">Combien ça peut vous rapporter ?</div>
+    <p class="section-desc" style="margin: 0 auto;">Estimez l'impact financier des avis et abonnés supplémentaires générés par votre plaque NFC.</p>
+  </div>
+
+  <div class="sim-wrap">
+    <div class="sim-title">🧮 Mon simulateur de revenus</div>
+    <p class="sim-desc">Ajustez les curseurs selon votre situation pour voir le potentiel de la plaque NFC.</p>
+
+    <div class="sim-type-toggle">
+      <button class="sim-toggle-btn active" onclick="setType('google')" id="btn-google">⭐ Avis Google</button>
+      <button class="sim-toggle-btn" onclick="setType('social')" id="btn-social">📲 Réseaux sociaux</button>
+    </div>
+
+    <div class="sim-sliders">
+      <div class="slider-group">
+        <label>
+          <span id="label-metric">Avis supplémentaires / mois</span>
+          <span id="val-metric">30</span>
+        </label>
+        <input type="range" id="slider-metric" min="5" max="200" value="30" step="5" oninput="update()" />
+      </div>
+
+      <div class="slider-group">
+        <label>
+          <span id="label-taux">Taux de conversion en client (%)</span>
+          <span id="val-taux">8%</span>
+        </label>
+        <input type="range" id="slider-taux" min="1" max="30" value="8" step="1" oninput="update()" />
+      </div>
+
+      <div class="slider-group">
+        <label>
+          <span>Panier moyen par client (€)</span>
+          <span id="val-panier">80 €</span>
+        </label>
+        <input type="range" id="slider-panier" min="10" max="500" value="80" step="5" oninput="update()" />
+      </div>
+    </div>
+
+    <div class="sim-result">
+      <div class="sim-result-label">Revenu supplémentaire estimé</div>
+      <div class="sim-result-main" id="result-monthly">192 €</div>
+      <div class="sim-result-sub">par mois grâce à votre plaque NFC</div>
+      <div class="sim-breakdown">
+        <div class="breakdown-item">
+          <div class="breakdown-val" id="bd-metric">30</div>
+          <div class="breakdown-label" id="bd-metric-label">Avis / mois</div>
+        </div>
+        <div class="breakdown-item">
+          <div class="breakdown-val" id="bd-clients">2</div>
+          <div class="breakdown-label">Nouveaux clients / mois</div>
+        </div>
+        <div class="breakdown-item">
+          <div class="breakdown-val" id="bd-annual">2 304 €</div>
+          <div class="breakdown-label">Gain annuel estimé</div>
+        </div>
+      </div>
+    </div>
+    <p class="sim-note">* Estimation indicative basée sur des moyennes sectorielles. Les résultats réels varient selon votre secteur d'activité, votre localisation et la qualité de vos prestations.</p>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section" id="contact">
+  <div class="cta-inner">
+    <div class="section-label">Passez à l'action</div>
+    <div class="section-title">Prêt à booster votre réputation ?</div>
+    <p class="section-desc">Contactez-nous dès maintenant. On vous explique tout, on configure votre plaque selon vos besoins et on vous livre rapidement.</p>
+
+    <div class="cta-actions">
+      <a href="https://wa.me/message/SCE7XKAHGA56E1" target="_blank" class="btn-primary">
+        💬 Discuter sur WhatsApp
+      </a>
+      <a href="tel:+33775758121" class="btn-secondary">
+        📞 +33 7 75 75 81 21
+      </a>
+    </div>
+
+    <div class="cta-form-wrap" style="text-align: center; display: flex; flex-direction: column; align-items: center; gap: 20px;">
+      <div style="width: 64px; height: 64px; background: rgba(204,253,85,0.1); border-radius: 16px; display: flex; align-items: center; justify-content: center; font-size: 1.8rem;">📅</div>
+      <div class="form-title">Réservez votre créneau d'installation</div>
+      <p class="form-subtitle" style="max-width: 400px;">On discute de votre projet, on configure votre page, on cale la date d'installation. 30 minutes suffisent.</p>
+      <a href="https://calendly.com/centrsupply/30min" target="_blank" class="btn-primary" style="font-size: 1rem; padding: 18px 36px;">
+        Choisir mon créneau →
+      </a>
+      <p style="font-size: 0.78rem; color: rgba(136,136,136,0.6);">Appel visio ou téléphonique · 30 minutes · Installation incluse · Sans engagement</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <a href="index.html" class="footer-logo"><img src="logo-centr.png" alt="Centr Supply" /></a>
+  <div class="footer-copy">© 2025 Centr Supply — Distributeur B2B</div>
+  <div class="footer-copy"><a href="mailto:contact@centrsupply.com" style="color: var(--text-muted); text-decoration: none;">contact@centrsupply.com</a></div>
+</footer>
+
+<script>
+  let simType = 'google';
+
+  function setType(type) {
+    simType = type;
+    document.getElementById('btn-google').classList.toggle('active', type === 'google');
+    document.getElementById('btn-social').classList.toggle('active', type === 'social');
+
+    if (type === 'google') {
+      document.getElementById('label-metric').textContent = 'Avis supplémentaires / mois';
+      document.getElementById('label-taux').textContent = 'Taux de conversion en client (%)';
+      document.getElementById('bd-metric-label').textContent = 'Avis / mois';
+    } else {
+      document.getElementById('label-metric').textContent = 'Abonnés supplémentaires / mois';
+      document.getElementById('label-taux').textContent = 'Taux d\'engagement converti en client (%)';
+      document.getElementById('bd-metric-label').textContent = 'Abonnés / mois';
+    }
+    update();
+  }
+
+  function fmt(n) {
+    return new Intl.NumberFormat('fr-FR').format(Math.round(n));
+  }
+
+  function update() {
+    const metric = parseInt(document.getElementById('slider-metric').value);
+    const taux = parseInt(document.getElementById('slider-taux').value);
+    const panier = parseInt(document.getElementById('slider-panier').value);
+
+    document.getElementById('val-metric').textContent = metric;
+    document.getElementById('val-taux').textContent = taux + '%';
+    document.getElementById('val-panier').textContent = panier + ' €';
+
+    const clients = metric * (taux / 100);
+    const monthly = clients * panier;
+    const annual = monthly * 12;
+
+    document.getElementById('result-monthly').textContent = fmt(monthly) + ' €';
+    document.getElementById('bd-metric').textContent = fmt(metric);
+    document.getElementById('bd-clients').textContent = clients < 1 ? '< 1' : fmt(clients);
+    document.getElementById('bd-annual').textContent = fmt(annual) + ' €';
+  }
+
+  update();
+
+  function toggleMenu() {
+    const menu = document.getElementById('mobileMenu');
+    const btn = document.getElementById('hamburger');
+    menu.classList.toggle('open');
+    btn.classList.toggle('open');
+    document.body.style.overflow = menu.classList.contains('open') ? 'hidden' : '';
+  }
+  function closeMenu() {
+    document.getElementById('mobileMenu').classList.remove('open');
+    document.getElementById('hamburger').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+</script>
+</body>
+</html>
