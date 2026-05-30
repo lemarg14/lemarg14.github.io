@@ -3,13 +3,63 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Centr Supply — Distributeur B2B</title>
+
+  <!-- ── SEO ── -->
+  <title>Centr Supply — Distributeur B2B Normandie, Bretagne, Hauts-de-France</title>
+  <meta name="description" content="Centr Supply est votre distributeur B2B en Normandie, Bretagne et Hauts-de-France. Approvisionnement centralisé, livraison rapide, disponible 7j/7. Un seul interlocuteur pour tous vos besoins." />
+  <meta name="keywords" content="distributeur B2B, approvisionnement entreprise, fournisseur Normandie, fournisseur Bretagne, fournisseur Hauts-de-France, consommables professionnels, plaque NFC avis Google" />
+  <meta name="author" content="Centr Supply" />
+  <link rel="canonical" href="https://centrsupply.com/" />
+
+  <!-- ── OPEN GRAPH (partages réseaux sociaux) ── -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://centrsupply.com/" />
+  <meta property="og:title" content="Centr Supply — Distributeur B2B Normandie, Bretagne, Hauts-de-France" />
+  <meta property="og:description" content="Un seul partenaire pour tout votre approvisionnement B2B. Réactif, disponible 7j/7, livraison rapide. Normandie · Bretagne · Hauts-de-France." />
+  <meta property="og:image" content="https://centrsupply.com/logo-centr.png" />
+  <meta property="og:locale" content="fr_FR" />
+  <meta property="og:site_name" content="Centr Supply" />
+
+  <!-- ── TWITTER CARD ── -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Centr Supply — Distributeur B2B" />
+  <meta name="twitter:description" content="Un seul partenaire pour tout votre approvisionnement B2B. Disponible 7j/7." />
+  <meta name="twitter:image" content="https://centrsupply.com/logo-centr.png" />
+
+  <!-- ── SCHEMA.ORG (données structurées pour Google) ── -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Centr Supply",
+    "description": "Distributeur B2B spécialisé dans l'approvisionnement et la distribution pour les entreprises. Un interlocuteur unique, disponible 7j/7, pour tous vos besoins en consommables, produits personnalisés et nouvelles gammes.",
+    "url": "https://centrsupply.com",
+    "logo": "https://centrsupply.com/logo-centr.png",
+    "image": "https://centrsupply.com/logo-centr.png",
+    "telephone": "+33775758121",
+    "email": "contact@centrsupply.com",
+    "slogan": "Raising the standard",
+    "areaServed": ["Normandie", "Bretagne", "Hauts-de-France"],
+    "serviceType": ["Distribution B2B", "Approvisionnement", "Produits consommables", "Produits personnalisés", "Plaque NFC"],
+    "openingHours": "Mo-Su 00:00-24:00",
+    "sameAs": [
+      "https://wa.me/message/SCE7XKAHGA56E1"
+    ],
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+33775758121",
+      "contactType": "customer service",
+      "availableLanguage": "French",
+      "contactOption": "TollFree"
+    }
+  }
+  </script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     :root {
       --black: #000000;
       --white: #ffffff;
@@ -19,9 +69,7 @@
       --gray3: #2a2a2a;
       --text-muted: #888;
     }
-
     html { scroll-behavior: smooth; }
-
     body {
       background: var(--black);
       color: var(--white);
@@ -30,7 +78,6 @@
       line-height: 1.6;
       overflow-x: hidden;
     }
-
     /* ── NAV ── */
     nav {
       position: fixed;
@@ -44,13 +91,11 @@
       backdrop-filter: blur(12px);
       border-bottom: 1px solid rgba(255,255,255,0.06);
     }
-
     .nav-logo img {
       height: 70px;
       width: auto;
       display: block;
     }
-
     /* ── HAMBURGER ── */
     .hamburger {
       display: none;
@@ -73,7 +118,6 @@
     .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
     .hamburger.open span:nth-child(2) { opacity: 0; }
     .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-
     /* ── MOBILE MENU OVERLAY ── */
     .mobile-menu {
       display: none;
@@ -111,7 +155,6 @@
       font-weight: 800;
       border: none;
     }
-
     .nav-links {
       display: flex;
       gap: 36px;
@@ -126,7 +169,6 @@
       transition: color 0.2s;
     }
     .nav-links a:hover { color: var(--white); }
-
     .nav-cta {
       background: var(--green);
       color: var(--black) !important;
@@ -138,7 +180,6 @@
       transition: opacity 0.2s !important;
     }
     .nav-cta:hover { opacity: 0.85; color: var(--black) !important; }
-
     /* ── HERO ── */
     .hero {
       min-height: 100vh;
@@ -149,7 +190,6 @@
       position: relative;
       overflow: hidden;
     }
-
     .hero::before {
       content: '';
       position: absolute;
@@ -158,7 +198,6 @@
       background: radial-gradient(circle, rgba(204,253,85,0.08) 0%, transparent 70%);
       pointer-events: none;
     }
-
     .hero-eyebrow {
       display: inline-flex;
       align-items: center;
@@ -175,7 +214,6 @@
       width: 24px; height: 2px;
       background: var(--green);
     }
-
     .hero h1 {
       font-size: clamp(3rem, 7vw, 6rem);
       font-weight: 900;
@@ -188,7 +226,6 @@
       font-style: normal;
       color: var(--green);
     }
-
     .hero-sub {
       font-size: clamp(1rem, 2vw, 1.25rem);
       color: var(--text-muted);
@@ -196,13 +233,11 @@
       line-height: 1.7;
       margin-bottom: 52px;
     }
-
     .hero-actions {
       display: flex;
       gap: 16px;
       flex-wrap: wrap;
     }
-
     .btn-primary {
       background: var(--green);
       color: var(--black);
@@ -218,7 +253,6 @@
       gap: 8px;
     }
     .btn-primary:hover { opacity: 0.88; transform: translateY(-1px); }
-
     .btn-secondary {
       border: 1px solid rgba(255,255,255,0.18);
       color: var(--white);
@@ -233,7 +267,6 @@
       gap: 8px;
     }
     .btn-secondary:hover { border-color: var(--green); background: rgba(204,253,85,0.05); }
-
     .hero-stats {
       display: flex;
       gap: 60px;
@@ -253,10 +286,8 @@
       margin-top: 4px;
       font-weight: 400;
     }
-
     /* ── SECTIONS ── */
     section { padding: 100px 60px; }
-
     .section-label {
       font-size: 0.75rem;
       font-weight: 700;
@@ -265,7 +296,6 @@
       color: var(--green);
       margin-bottom: 16px;
     }
-
     .section-title {
       font-size: clamp(2rem, 4vw, 3rem);
       font-weight: 800;
@@ -274,33 +304,28 @@
       max-width: 700px;
       margin-bottom: 20px;
     }
-
     .section-desc {
       color: var(--text-muted);
       font-size: 1.05rem;
       max-width: 560px;
       line-height: 1.75;
     }
-
     /* ── PROBLEM / SOLUTION ── */
     .problem-section {
       background: var(--gray);
     }
-
     .ps-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 2px;
       margin-top: 60px;
     }
-
     .ps-card {
       padding: 48px;
       background: var(--gray2);
     }
     .ps-card:first-child { border-radius: 12px 0 0 12px; }
     .ps-card:last-child { border-radius: 0 12px 12px 0; }
-
     .ps-tag {
       display: inline-block;
       padding: 4px 12px;
@@ -313,7 +338,6 @@
     }
     .tag-problem { background: rgba(255,80,80,0.15); color: #ff6b6b; }
     .tag-solution { background: rgba(204,253,85,0.12); color: var(--green); }
-
     .ps-card h3 {
       font-size: 1.4rem;
       font-weight: 700;
@@ -347,7 +371,6 @@
       content: '✓';
       color: var(--green);
     }
-
     /* ── SERVICES ── */
     .services-grid {
       display: grid;
@@ -355,7 +378,6 @@
       gap: 2px;
       margin-top: 60px;
     }
-
     .service-card {
       background: var(--gray2);
       padding: 40px 36px;
@@ -365,7 +387,6 @@
     .service-card:first-child { border-radius: 12px 0 0 12px; }
     .service-card:last-child { border-radius: 0 12px 12px 0; }
     .service-card:hover { background: var(--gray3); }
-
     .service-icon {
       width: 48px; height: 48px;
       background: rgba(204,253,85,0.1);
@@ -376,7 +397,6 @@
       font-size: 1.4rem;
       margin-bottom: 24px;
     }
-
     .service-card h3 {
       font-size: 1.15rem;
       font-weight: 700;
@@ -387,17 +407,14 @@
       font-size: 0.9rem;
       line-height: 1.7;
     }
-
     /* ── PILLARS ── */
     .pillars-section { background: var(--black); }
-
     .pillars-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 24px;
       margin-top: 60px;
     }
-
     .pillar-card {
       border: 1px solid rgba(255,255,255,0.08);
       border-radius: 12px;
@@ -408,7 +425,6 @@
       border-color: var(--green);
       background: rgba(204,253,85,0.03);
     }
-
     .pillar-num {
       font-size: 2.5rem;
       font-weight: 900;
@@ -417,7 +433,6 @@
       letter-spacing: -0.04em;
       margin-bottom: 16px;
     }
-
     .pillar-card h3 {
       font-size: 1.05rem;
       font-weight: 700;
@@ -428,19 +443,16 @@
       font-size: 0.88rem;
       line-height: 1.65;
     }
-
     /* ── NFC TEASER ── */
     .nfc-teaser {
       background: var(--gray);
     }
-
     .nfc-inner {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 80px;
       align-items: center;
     }
-
     .nfc-visual {
       position: relative;
       height: 400px;
@@ -448,7 +460,6 @@
       align-items: center;
       justify-content: center;
     }
-
     .nfc-card-mock {
       width: 260px; height: 160px;
       background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
@@ -461,7 +472,6 @@
       gap: 12px;
       box-shadow: 0 0 60px rgba(204,253,85,0.12);
     }
-
     .nfc-icon {
       width: 48px; height: 48px;
       border: 2px solid var(--green);
@@ -471,14 +481,12 @@
       justify-content: center;
       font-size: 1.4rem;
     }
-
     .nfc-card-mock span {
       font-size: 0.8rem;
       color: var(--text-muted);
       letter-spacing: 0.06em;
       text-transform: uppercase;
     }
-
     .nfc-rings {
       position: absolute;
       top: 50%; left: 50%;
@@ -495,14 +503,11 @@
     .nfc-rings span:nth-child(1) { width: 300px; height: 300px; animation-delay: 0s; }
     .nfc-rings span:nth-child(2) { width: 400px; height: 400px; animation-delay: 0.8s; }
     .nfc-rings span:nth-child(3) { width: 500px; height: 500px; animation-delay: 1.6s; }
-
     @keyframes pulse-ring {
       0% { opacity: 0.6; transform: translate(-50%, -50%) scale(0.95); }
       100% { opacity: 0; transform: translate(-50%, -50%) scale(1.05); }
     }
-
     .nfc-content .section-title { max-width: 500px; }
-
     .nfc-bullets {
       list-style: none;
       margin: 32px 0;
@@ -523,26 +528,22 @@
       font-weight: 700;
       flex-shrink: 0;
     }
-
     /* ── CONTACT ── */
     .contact-section {
       background: var(--black);
     }
-
     .contact-inner {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 80px;
       align-items: start;
     }
-
     .contact-cards {
       display: flex;
       flex-direction: column;
       gap: 16px;
       margin-top: 40px;
     }
-
     .contact-card {
       display: flex;
       align-items: center;
@@ -558,7 +559,6 @@
       border-color: var(--green);
       background: rgba(204,253,85,0.04);
     }
-
     .contact-card-icon {
       width: 44px; height: 44px;
       background: rgba(204,253,85,0.1);
@@ -569,7 +569,6 @@
       font-size: 1.2rem;
       flex-shrink: 0;
     }
-
     .contact-card-info {}
     .contact-card-label {
       font-size: 0.75rem;
@@ -584,66 +583,37 @@
       font-weight: 500;
       margin-top: 2px;
     }
-
-    /* FORM */
-    .contact-form-wrap {
-      margin-top: 40px;
-    }
-
-    .form-group {
-      margin-bottom: 16px;
-    }
-
-    .form-group label {
-      display: block;
-      font-size: 0.8rem;
-      font-weight: 600;
-      color: var(--text-muted);
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      margin-bottom: 8px;
-    }
-
-    .form-group input,
-    .form-group textarea,
-    .form-group select {
-      width: 100%;
+    /* ── CALENDLY / CONTACT ── */
+    .calendly-box {
       background: var(--gray2);
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 8px;
-      color: var(--white);
-      font-family: 'Inter', sans-serif;
-      font-size: 0.95rem;
-      padding: 14px 16px;
-      outline: none;
-      transition: border-color 0.2s;
+      border: 1px solid rgba(204,253,85,0.2);
+      border-radius: 16px;
+      padding: 48px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 20px;
     }
-    .form-group input:focus,
-    .form-group textarea:focus,
-    .form-group select:focus {
-      border-color: var(--green);
+    .calendly-icon {
+      width: 64px; height: 64px;
+      background: rgba(204,253,85,0.1);
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
     }
-    .form-group textarea { resize: vertical; min-height: 120px; }
-
-    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-
-    .btn-form {
-      width: 100%;
-      background: var(--green);
-      color: var(--black);
-      border: none;
-      border-radius: 8px;
-      padding: 16px;
-      font-family: 'Inter', sans-serif;
-      font-size: 1rem;
+    .calendly-box h3 {
+      font-size: 1.3rem;
       font-weight: 700;
-      cursor: pointer;
-      letter-spacing: 0.02em;
-      transition: opacity 0.2s;
-      margin-top: 8px;
     }
-    .btn-form:hover { opacity: 0.85; }
-
+    .calendly-box p {
+      color: var(--text-muted);
+      font-size: 0.92rem;
+      max-width: 340px;
+      line-height: 1.7;
+    }
     /* ── FOOTER ── */
     footer {
       border-top: 1px solid rgba(255,255,255,0.06);
@@ -654,27 +624,22 @@
       flex-wrap: wrap;
       gap: 16px;
     }
-
     .footer-logo img {
       height: 40px;
       width: auto;
     }
-
     .footer-copy {
       font-size: 0.82rem;
       color: var(--text-muted);
     }
-
     /* ── CLIENTÈLES ── */
     .clienteles-section { background: var(--gray); }
-
     .clienteles-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 16px;
       margin-top: 60px;
     }
-
     .client-card {
       background: var(--gray2);
       border-radius: 12px;
@@ -689,21 +654,17 @@
       border-color: var(--green);
       background: rgba(204,253,85,0.03);
     }
-
     .client-card-icon { font-size: 1.8rem; }
     .client-card h3 { font-size: 0.95rem; font-weight: 700; }
     .client-card p { color: var(--text-muted); font-size: 0.82rem; line-height: 1.6; }
-
     /* ── PRODUITS ── */
     .produits-section { background: var(--black); }
-
     .produits-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 2px;
       margin-top: 60px;
     }
-
     .produit-card {
       background: var(--gray2);
       padding: 40px 32px;
@@ -712,7 +673,6 @@
     .produit-card:first-child { border-radius: 12px 0 0 12px; }
     .produit-card:last-child { border-radius: 0 12px 12px 0; }
     .produit-card:hover { background: var(--gray3); }
-
     .produit-tag {
       display: inline-block;
       padding: 3px 10px;
@@ -725,10 +685,8 @@
       text-transform: uppercase;
       margin-bottom: 18px;
     }
-
     .produit-card h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 12px; }
     .produit-card p { color: var(--text-muted); font-size: 0.88rem; line-height: 1.7; }
-
     .produit-list {
       list-style: none;
       margin-top: 16px;
@@ -748,47 +706,11 @@
       color: var(--green);
       font-size: 0.75rem;
     }
-
-    /* ── CALENDLY / CONTACT ── */
-    .calendly-box {
-      background: var(--gray2);
-      border: 1px solid rgba(204,253,85,0.2);
-      border-radius: 16px;
-      padding: 48px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      gap: 20px;
-    }
-
-    .calendly-icon {
-      width: 64px; height: 64px;
-      background: rgba(204,253,85,0.1);
-      border-radius: 16px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.8rem;
-    }
-
-    .calendly-box h3 {
-      font-size: 1.3rem;
-      font-weight: 700;
-    }
-    .calendly-box p {
-      color: var(--text-muted);
-      font-size: 0.92rem;
-      max-width: 340px;
-      line-height: 1.7;
-    }
-
     /* ── MOBILE ── */
     @media (max-width: 900px) {
       nav { padding: 14px 20px; }
       .nav-links { display: none; }
       .hamburger { display: flex; }
-
       section { padding: 60px 20px; }
       .hero { padding: 110px 20px 60px; }
       .hero h1 { font-size: 2.4rem; }
@@ -797,38 +719,28 @@
       .hero-actions a { text-align: center; justify-content: center; }
       .hero-stats { gap: 28px; margin-top: 48px; }
       .stat-num { font-size: 1.8rem; }
-
       .ps-grid { grid-template-columns: 1fr; gap: 2px; }
       .ps-card { padding: 32px 24px; }
       .ps-card:first-child { border-radius: 12px 12px 0 0; }
       .ps-card:last-child { border-radius: 0 0 12px 12px; }
-
       .services-grid { grid-template-columns: 1fr; gap: 2px; }
       .service-card:first-child { border-radius: 12px 12px 0 0; }
       .service-card:last-child { border-radius: 0 0 12px 12px; }
-
       .pillars-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
       .pillar-card { padding: 24px 18px; }
-
       .clienteles-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
       .client-card { padding: 20px 16px; }
-
       .produits-grid { grid-template-columns: 1fr; gap: 2px; }
       .produit-card:first-child { border-radius: 12px 12px 0 0; }
       .produit-card:last-child { border-radius: 0 0 12px 12px; }
-
       .nfc-inner { grid-template-columns: 1fr; gap: 40px; }
       .nfc-visual { height: 220px; }
       .nfc-rings span:nth-child(3) { display: none; }
-
       .contact-inner { grid-template-columns: 1fr; gap: 40px; }
       .calendly-box { padding: 32px 20px; }
-
       .section-title { font-size: 1.8rem; }
-
       footer { padding: 28px 20px; flex-direction: column; align-items: flex-start; gap: 10px; }
     }
-
     @media (max-width: 480px) {
       .pillars-grid { grid-template-columns: 1fr; }
       .clienteles-grid { grid-template-columns: 1fr; }
@@ -837,25 +749,23 @@
   </style>
 </head>
 <body>
-
 <!-- MOBILE MENU -->
 <div class="mobile-menu" id="mobileMenu">
   <a href="#services" onclick="closeMenu()">Services</a>
   <a href="#clienteles" onclick="closeMenu()">Clientèles</a>
   <a href="#produits" onclick="closeMenu()">Produits</a>
-  <a href="/plaque-nfc/" onclick="closeMenu()">Plaque NFC</a>
+  <a href="plaque-nfc/" onclick="closeMenu()">Plaque NFC</a>
   <a href="#contact" onclick="closeMenu()">Contact</a>
   <a href="https://wa.me/message/SCE7XKAHGA56E1" target="_blank" class="mob-cta" onclick="closeMenu()">💬 WhatsApp</a>
 </div>
-
 <!-- NAV -->
 <nav>
-  <a href="index.html" class="nav-logo"><img src="logo-centr.png" alt="Centr Supply" /></a>
+  <a href="/" class="nav-logo"><img src="logo-centr.png" alt="Centr Supply — Distributeur B2B" /></a>
   <ul class="nav-links">
     <li><a href="#services">Services</a></li>
     <li><a href="#clienteles">Clientèles</a></li>
     <li><a href="#produits">Produits</a></li>
-    <li><a href="/plaque-nfc/">Plaque NFC</a></li>
+    <li><a href="plaque-nfc/">Plaque NFC</a></li>
     <li><a href="#contact">Contact</a></li>
     <li><a href="https://wa.me/message/SCE7XKAHGA56E1" target="_blank" class="nav-cta">WhatsApp</a></li>
   </ul>
@@ -863,17 +773,16 @@
     <span></span><span></span><span></span>
   </button>
 </nav>
-
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-eyebrow">Distributeur B2B — Normandie - Bretagne - Hauts de France</div>
+  <div class="hero-eyebrow">Distributeur B2B — Normandie · Bretagne · Hauts-de-France</div>
   <h1>Un seul partenaire.<br /><em>Tout ce dont vous avez besoin.</em></h1>
   <p class="hero-sub">
     Fini les 10 fournisseurs différents, les délais interminables et les devis qui s'accumulent. Centr Supply centralise votre approvisionnement pour vous faire gagner du temps, de l'argent et de la sérénité.
   </p>
   <div class="hero-actions">
     <a href="#contact" class="btn-primary">Nous contacter →</a>
-    <a href="/plaque-nfc/" class="btn-secondary">Découvrir la Plaque NFC</a>
+    <a href="plaque-nfc/" class="btn-secondary">Découvrir la Plaque NFC</a>
   </div>
   <div class="hero-stats">
     <div class="stat-item">
@@ -890,7 +799,6 @@
     </div>
   </div>
 </section>
-
 <!-- PROBLEM / SOLUTION -->
 <section class="problem-section" id="services">
   <div class="section-label">Le constat</div>
@@ -913,14 +821,13 @@
       <p>Nous centralisons votre approvisionnement B2B pour vous permettre de vous concentrer sur ce qui compte vraiment : votre activité.</p>
       <ul>
         <li>Un interlocuteur unique pour tout</li>
-        <li>Réactivité & disponibilité 7j/7</li>
+        <li>Réactivité &amp; disponibilité 7j/7</li>
         <li>Livraison rapide et fiable</li>
-        <li>Accompagnement & conseil personnalisé</li>
+        <li>Accompagnement &amp; conseil personnalisé</li>
       </ul>
     </div>
   </div>
 </section>
-
 <!-- SERVICES -->
 <section style="background: var(--black);">
   <div class="section-label">Ce qu'on fait</div>
@@ -934,17 +841,16 @@
     </div>
     <div class="service-card">
       <div class="service-icon">🚚</div>
-      <h3>Distribution & livraison</h3>
+      <h3>Distribution &amp; livraison</h3>
       <p>Livraison rapide et fiable, gérée de A à Z. Vous commandez, on livre. Simple, sans surprise.</p>
     </div>
     <div class="service-card">
       <div class="service-icon">🤝</div>
-      <h3>Conseil & accompagnement</h3>
+      <h3>Conseil &amp; accompagnement</h3>
       <p>Nous ne sommes pas juste un fournisseur. Nous sommes votre partenaire : conseils, optimisation, recommandations.</p>
     </div>
   </div>
 </section>
-
 <!-- PILLARS -->
 <section class="pillars-section" id="avantages">
   <div class="section-label">Pourquoi Centr Supply</div>
@@ -972,7 +878,6 @@
     </div>
   </div>
 </section>
-
 <!-- CLIENTÈLES -->
 <section class="clienteles-section" id="clienteles">
   <div class="section-label">On travaille avec vous</div>
@@ -1011,17 +916,16 @@
     </div>
     <div class="client-card">
       <div class="client-card-icon">🔧</div>
-      <h3>Garages & auto</h3>
+      <h3>Garages &amp; auto</h3>
       <p>Mécaniciens, carrossiers, centres auto. Produits d'entretien, consommables et fournitures atelier.</p>
     </div>
     <div class="client-card">
       <div class="client-card-icon">🏢</div>
-      <h3>Bureaux & entreprises</h3>
+      <h3>Bureaux &amp; entreprises</h3>
       <p>TPE, PME et grands comptes. Fournitures de bureau, hygiène, équipements et bien plus.</p>
     </div>
   </div>
 </section>
-
 <!-- PRODUITS -->
 <section class="produits-section" id="produits">
   <div class="section-label">Ce qu'on fournit</div>
@@ -1032,8 +936,8 @@
       <h3>Produits du quotidien</h3>
       <p>Tout ce que vous utilisez régulièrement et devez réapprovisionner. On centralise, on livre, vous n'y pensez plus.</p>
       <ul class="produit-list">
-        <li>Hygiène & entretien</li>
-        <li>Emballages & conditionnement</li>
+        <li>Hygiène &amp; entretien</li>
+        <li>Emballages &amp; conditionnement</li>
         <li>Fournitures diverses</li>
         <li>Produits jetables professionnels</li>
       </ul>
@@ -1044,9 +948,9 @@
       <p>Vous avez une identité de marque forte ? On fabrique et fournit des produits à votre image, en petit ou grand volume.</p>
       <ul class="produit-list">
         <li>Emballages à votre marque</li>
-        <li>Goodies & objets pub</li>
+        <li>Goodies &amp; objets pub</li>
         <li>Packaging personnalisé</li>
-        <li>Textiles & équipements brandés</li>
+        <li>Textiles &amp; équipements brandés</li>
       </ul>
     </div>
     <div class="produit-card">
@@ -1057,12 +961,11 @@
         <li>Gammes exclusives B2B</li>
         <li>Marges revendeur attractives</li>
         <li>Accompagnement au lancement</li>
-        <li>Plaque NFC & outils digitaux</li>
+        <li>Plaque NFC &amp; outils digitaux</li>
       </ul>
     </div>
   </div>
 </section>
-
 <!-- NFC TEASER -->
 <section class="nfc-teaser">
   <div class="nfc-inner">
@@ -1083,15 +986,14 @@
       <p class="section-desc">La plaque NFC Centr Supply permet à vos clients de laisser un avis Google, de vous suivre sur les réseaux ou d'accéder à votre fiche en un seul geste. Installez-la, et regardez votre réputation en ligne décoller.</p>
       <ul class="nfc-bullets">
         <li>Plus d'avis Google = meilleur référencement local</li>
-        <li>Installation ultra simple, aucune app requise</li>
+        <li>Installation sur place par notre équipe</li>
         <li>Fonctionne avec tous les smartphones</li>
         <li>Simulateur de revenus disponible</li>
       </ul>
-      <a href="/plaque-nfc/" class="btn-primary">Découvrir la plaque NFC →</a>
+      <a href="plaque-nfc/" class="btn-primary">Découvrir la plaque NFC →</a>
     </div>
   </div>
 </section>
-
 <!-- CONTACT -->
 <section class="contact-section" id="contact">
   <div class="contact-inner">
@@ -1136,14 +1038,12 @@
     </div>
   </div>
 </section>
-
 <!-- FOOTER -->
 <footer>
-  <a href="index.html" class="footer-logo"><img src="logo-centr.png" alt="Centr Supply" /></a>
+  <a href="/" class="footer-logo"><img src="logo-centr.png" alt="Centr Supply" /></a>
   <div class="footer-copy">© 2026 Centr Supply — Distributeur B2B</div>
   <div class="footer-copy"><a href="mailto:contact@centrsupply.com" style="color: var(--text-muted); text-decoration: none;">contact@centrsupply.com</a></div>
 </footer>
-
 <script>
   function toggleMenu() {
     const menu = document.getElementById('mobileMenu');
