@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Plaque NFC — Centr Supply</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --black:#000000;
+    --white:#ffffff;
+    --green:#ccfd55;
+    --green-dark:#aee03a;
+    --gray:#111111;
+    --gray2:#1a1a1a;
+    --gray3:#2a2a2a;
+    --line:#2a2a2a;
+    --muted:#888888;
+    --radius:18px;
+    --shadow:0 14px 40px rgba(0,0,0,.5);
+    font-size:16px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{
+    font-family:'Inter',system-ui,-apple-system,sans-serif;
+    color:var(--white);background:var(--black);line-height:1.6;-webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 22px}
+  h1,h2,h3{line-height:1.15;font-weight:800;letter-spacing:-.5px}
+  h2{font-size:2.1rem;margin-bottom:.5rem}
+  h2 .lead{display:block;font-size:.82rem;font-weight:700;color:var(--green);text-transform:uppercase;letter-spacing:.14em;margin-bottom:.7rem}
+  section{padding:76px 0;border-bottom:1px solid var(--line)}
+  p.sub{color:var(--muted);max-width:680px;margin-bottom:2.4rem}
+  .em{color:var(--green)}
+  /* HERO */
+  header.hero{background:radial-gradient(900px 500px at 70% -10%,rgba(204,253,85,.12),transparent 60%),var(--black);
+    padding:90px 0 78px;border-bottom:1px solid var(--line)}
+  .badge{display:inline-flex;align-items:center;gap:8px;background:var(--gray2);color:var(--green);font-weight:600;
+    font-size:.82rem;padding:7px 15px;border-radius:99px;margin-bottom:20px;border:1px solid var(--line)}
+  .hero h1{font-size:3.3rem;letter-spacing:-1.5px;margin-bottom:18px;font-weight:900}
+  .hero h1 i{font-style:italic;color:var(--green)}
+  .hero p{font-size:1.18rem;color:var(--muted);max-width:600px;margin-bottom:30px}
+  .hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center}
+  .cta{display:inline-flex;gap:12px;flex-wrap:wrap}
+  .btn{display:inline-block;background:var(--green);color:var(--black);font-weight:700;
+    padding:14px 26px;border-radius:99px;text-decoration:none;border:none;cursor:pointer;font-size:1rem;transition:.2s}
+  .btn:hover{background:var(--green-dark);transform:translateY(-2px)}
+  .btn.ghost{background:transparent;color:var(--white);border:1.5px solid var(--gray3)}
+  .btn.ghost:hover{background:var(--gray2);border-color:var(--green)}
+  /* plate mockup */
+  .plate-vis{display:flex;justify-content:center}
+  .plate{width:230px;height:300px;border-radius:26px;background:linear-gradient(150deg,var(--gray2),var(--gray3));
+    border:1px solid var(--line);box-shadow:var(--shadow);display:flex;flex-direction:column;align-items:center;
+    justify-content:center;text-align:center;padding:24px;position:relative}
+  .plate .ring{width:90px;height:90px;border-radius:50%;border:3px dashed var(--green);
+    display:flex;align-items:center;justify-content:center;margin-bottom:18px}
+  .plate .ring span{font-size:2.4rem}
+  .plate b{font-size:1.1rem;letter-spacing:.05em;color:var(--white)}
+  .plate small{color:var(--muted);font-size:.78rem;margin-top:6px}
+  .wave{position:absolute;top:-12px;right:-12px;background:var(--green);color:var(--black);font-weight:800;
+    font-size:.8rem;padding:8px 14px;border-radius:12px}
+  /* grid cards */
+  .grid{display:grid;gap:22px}
+  .g3{grid-template-columns:repeat(3,1fr)}
+  .g2{grid-template-columns:repeat(2,1fr)}
+  .card{background:var(--gray);border:1px solid var(--line);border-radius:var(--radius);padding:26px;transition:.2s}
+  .card:hover{border-color:var(--green);transform:translateY(-3px)}
+  .card .ic{width:46px;height:46px;border-radius:12px;background:var(--gray3);color:var(--green);
+    display:flex;align-items:center;justify-content:center;font-size:1.4rem;margin-bottom:14px}
+  .card h3{font-size:1.12rem;margin-bottom:8px;font-weight:700}
+  .card p{color:var(--muted);font-size:.96rem}
+  /* chips */
+  .chips{display:flex;flex-wrap:wrap;gap:12px;margin-top:8px}
+  .chip{background:var(--gray2);border:1px solid var(--line);border-radius:99px;padding:10px 18px;font-weight:600;
+    font-size:.92rem;display:flex;align-items:center;gap:8px}
+  .chip i{font-style:normal}
+  /* photo */
+  .photo-plaque{display:block;width:100%;max-width:680px;margin:0 auto;border-radius:var(--radius);
+    box-shadow:var(--shadow);border:1px solid var(--line)}
+  .photo-ph{background:var(--gray);border-radius:var(--radius);aspect-ratio:16/9;display:flex;
+    flex-direction:column;align-items:center;justify-content:center;text-align:center;border:2px dashed var(--gray3)}
+  .photo-ph .play{width:74px;height:74px;border-radius:50%;background:var(--green);color:var(--black);display:flex;
+    align-items:center;justify-content:center;font-size:1.8rem;margin-bottom:14px}
+  .photo-ph small{color:var(--muted)}
+  /* ROI sim */
+  .sim{background:var(--gray);border:1px solid var(--line);border-radius:24px;padding:34px}
+  .sim-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
+  .field{margin-bottom:20px}
+  .field label{display:flex;justify-content:space-between;font-weight:600;font-size:.94rem;margin-bottom:6px}
+  .field label b{color:var(--green)}
+  input[type=range]{width:100%;accent-color:var(--green);height:6px}
+  .field small{color:var(--muted);font-size:.82rem}
+  .results{background:var(--gray2);border:1px solid var(--line);border-radius:18px;padding:28px}
+  .res-row{display:flex;justify-content:space-between;align-items:baseline;padding:12px 0;border-bottom:1px dashed var(--line)}
+  .res-row:last-child{border:none}
+  .res-row span{color:var(--muted);font-size:.95rem}
+  .res-row b{font-size:1.5rem;color:var(--white)}
+  .res-hi{background:var(--green);color:var(--black);border-radius:14px;padding:18px 20px;margin-top:14px;text-align:center}
+  .res-hi b{font-size:2rem;display:block}
+  .res-hi span{opacity:.8;font-size:.9rem}
+  .note{font-size:.85rem;color:var(--muted);margin-top:18px}
+  /* tabs / cases */
+  .tabs{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:26px}
+  .tab{background:var(--gray);border:1.5px solid var(--line);border-radius:99px;padding:10px 20px;font-weight:600;
+    cursor:pointer;font-size:.94rem;transition:.2s;color:var(--muted)}
+  .tab.active{background:var(--green);color:var(--black);border-color:var(--green)}
+  .case{display:none}
+  .case.active{display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:center;animation:fade .3s}
+  @keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+  .case .txt h3{font-size:1.4rem;margin-bottom:6px}
+  .case .pill{display:inline-block;background:var(--gray3);color:var(--green);font-weight:600;font-size:.8rem;
+    padding:4px 12px;border-radius:99px;margin-bottom:14px}
+  .case .txt p{color:var(--muted)}
+  .case ul{list-style:none;margin-top:14px}
+  .case li{padding:6px 0 6px 26px;position:relative;color:var(--muted)}
+  .case li::before{content:"→";position:absolute;left:0;color:var(--green);font-weight:800}
+  .metrics{background:var(--gray);border:1px solid var(--line);border-radius:18px;padding:26px;display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  .metric b{font-size:1.9rem;color:var(--green);display:block}
+  .metric span{font-size:.85rem;color:var(--muted)}
+  /* price */
+  .price-box{background:var(--gray);border:2px solid var(--line);border-radius:24px;padding:38px 30px}
+  .price-box.hi{border-color:var(--green)}
+  .price-box .tag{display:inline-block;background:var(--green);color:var(--black);font-weight:800;font-size:.78rem;
+    padding:6px 14px;border-radius:99px;margin-bottom:16px}
+  .price-box .tag.alt{background:var(--gray3);color:var(--green)}
+  .price{font-size:3.2rem;font-weight:900;color:var(--white)}
+  .price small{font-size:1.05rem;color:var(--muted);font-weight:600}
+  .price-box>p{color:var(--muted);margin-top:6px}
+  .price-box ul{list-style:none;margin:22px 0 0}
+  .price-box li{padding:8px 0 8px 30px;position:relative;color:var(--muted)}
+  .price-box li::before{content:"✓";position:absolute;left:0;color:var(--green);font-weight:800}
+  /* steps */
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;counter-reset:s}
+  .step::before{counter-increment:s;content:counter(s,decimal-leading-zero);font-size:1.6rem;font-weight:900;
+    color:var(--green);display:block;margin-bottom:10px}
+  .step h3{font-size:1.05rem;margin-bottom:6px}
+  .step p{color:var(--muted);font-size:.94rem}
+  /* footer */
+  footer{background:radial-gradient(700px 400px at 50% 0%,rgba(204,253,85,.1),transparent 60%),var(--black);
+    text-align:center;padding:78px 0}
+  footer h2{font-size:2.3rem;margin-bottom:14px}
+  footer p{color:var(--muted);max-width:520px;margin:0 auto 28px}
+  footer .meta{display:block;margin-top:30px;font-size:.95rem;color:var(--muted)}
+  footer .meta a{color:var(--green);font-weight:700;text-decoration:none}
+  footer .copy{display:block;margin-top:10px;font-size:.82rem;color:#555}
+  @media(max-width:860px){
+    .hero-grid,.sim-grid,.case.active,.g3,.g2,.steps{grid-template-columns:1fr}
+    .hero h1{font-size:2.3rem}
+    .plate-vis{order:-1}
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="badge">⚡ Plaque NFC · propulsé par <a href="https://centrsupply.com" target="_blank" rel="noopener" style="text-decoration:underline">Centr Supply</a></span>
+      <h1>Un tap. <i>Tous vos liens.</i></h1>
+      <p>La plaque NFC Centr Supply transforme chaque client satisfait en ambassadeur. Un simple geste : avis Google, réseaux sociaux, site web — sans application, sans friction.</p>
+      <div class="cta">
+        <a class="btn" href="#roi">Calculer mon gain →</a>
+        <a class="btn ghost" href="#contact">Je veux ma plaque</a>
+      </div>
+    </div>
+    <div class="plate-vis">
+      <div class="plate">
+        <div class="wave">📲 Tap</div>
+        <div class="ring"><span>📶</span></div>
+        <b>VOS LIENS</b>
+        <small>Avis · Réseaux · Site · Menu</small>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- INTÉRÊT -->
+<section>
+  <div class="wrap">
+    <h2><span class="lead">L'intérêt</span>Votre réputation en ligne, <span class="em">automatisée</span></h2>
+    <p class="sub">Le NFC supprime toute friction. Un simple contact transforme un client satisfait en avis Google, en abonné ou en visite sur votre site.</p>
+    <div class="grid g3">
+      <div class="card"><div class="ic">⚡</div><h3>Instantané</h3><p>Le client pose son téléphone, la page s'ouvre. Aucune appli, aucune saisie.</p></div>
+      <div class="card"><div class="ic">⭐</div><h3>Plus d'avis Google</h3><p>Captez l'avis au pic de satisfaction, directement en boutique.</p></div>
+      <div class="card"><div class="ic">🚀</div><h3>Meilleur référencement local</h3><p>Plus d'avis récents = plus de visibilité sur Google = plus de clients.</p></div>
+      <div class="card"><div class="ic">📲</div><h3>Croissance réseaux sociaux</h3><p>Gagnez des abonnés Instagram, TikTok et Facebook organiquement.</p></div>
+      <div class="card"><div class="ic">🔁</div><h3>Modifiable à tout moment</h3><p>Changez la destination quand vous voulez. La plaque, elle, ne bouge pas.</p></div>
+      <div class="card"><div class="ic">♾️</div><h3>Sans abonnement</h3><p>Un paiement unique. La plaque fonctionne à vie, sans frais récurrents.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- OUTIL -->
+<section>
+  <div class="wrap">
+    <h2><span class="lead">Notre outil exclusif</span>Tous vos liens en <span class="em">un seul endroit</span></h2>
+    <p class="sub">Nous avons développé en interne notre propre outil de centralisation de liens — une version maison de Linktree, conçue pour les professionnels. C'est nous qui gérons tout.</p>
+    <div class="grid g2">
+      <div class="card">
+        <div class="ic">🔗</div>
+        <h3>Tout regroupé</h3>
+        <p>Avis Google, réseaux sociaux, site web, menu, prise de RDV, WhatsApp… sur une seule page propre et rapide, à votre image.</p>
+        <div class="chips">
+          <span class="chip"><i>⭐</i>Avis Google</span>
+          <span class="chip"><i>📷</i>Instagram</span>
+          <span class="chip"><i>🎵</i>TikTok</span>
+          <span class="chip"><i>🌐</i>Site web</span>
+          <span class="chip"><i>📋</i>Menu / Carte</span>
+          <span class="chip"><i>📅</i>Prise de RDV</span>
+          <span class="chip"><i>💬</i>WhatsApp</span>
+          <span class="chip"><i>➕</i>Et plus encore</span>
+        </div>
+      </div>
+      <div class="card">
+        <div class="ic">🧭</div>
+        <h3>Géré pour vous, de A à Z</h3>
+        <p>Configuration, mises à jour des liens, suivi : tout passe par nous. Une demande par message et c'est appliqué en temps réel. Aucun outil à apprendre.</p>
+        <ul style="list-style:none;margin-top:14px">
+          <li style="padding:6px 0;color:var(--muted)">✅ Page configurée avant installation</li>
+          <li style="padding:6px 0;color:var(--muted)">✅ Modifications illimitées incluses</li>
+          <li style="padding:6px 0;color:var(--muted)">✅ Hébergement et maintenance compris</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PHOTO -->
+<section>
+  <div class="wrap">
+    <h2 style="text-align:center"><span class="lead">La plaque</span>Notre plaque NFC en images</h2>
+    <p class="sub" style="margin:0 auto 2.2rem;text-align:center">Un objet soigné, prêt à poser sur votre comptoir, votre table ou votre vitrine.</p>
+    <img class="photo-plaque" src="photo-plaque.jpg" alt="Photo de la plaque NFC Centr Supply"
+         onerror="this.style.display='none';document.getElementById('photo-fallback').style.display='flex';">
+    <div class="photo-ph" id="photo-fallback" style="display:none">
+      <div class="play">🖼️</div>
+      <b>Photo de la plaque à intégrer</b>
+      <small style="margin-top:6px">Déposez votre image nommée « photo-plaque.jpg » à côté de ce fichier</small>
+    </div>
+  </div>
+</section>
+
+<!-- ROI -->
+<section id="roi">
+  <div class="wrap">
+    <h2><span class="lead">Le simulateur</span>Combien ça peut vous <span class="em">rapporter</span> ?</h2>
+    <p class="sub">Estimez les avis et abonnés que votre plaque peut générer, et en combien de temps elle est rentabilisée. Ajustez les curseurs selon votre activité.</p>
+    <div class="sim">
+      <div class="sim-grid">
+        <div>
+          <div class="field">
+            <label>Clients / passages par jour <b id="v-clients">40</b></label>
+            <input type="range" id="clients" min="5" max="300" value="40">
+            <small>Personnes qui passent chez vous chaque jour.</small>
+          </div>
+          <div class="field">
+            <label>Taux de tap de la plaque <b id="v-scan">15%</b></label>
+            <input type="range" id="scan" min="2" max="60" value="15">
+            <small>Part des clients qui approchent leur téléphone.</small>
+          </div>
+          <div class="field">
+            <label>Dont laissent un avis Google <b id="v-avis">25%</b></label>
+            <input type="range" id="avis" min="5" max="70" value="25">
+            <small>Part des taps qui se transforment en avis.</small>
+          </div>
+          <div class="field">
+            <label>Dont s'abonnent sur les réseaux <b id="v-social">30%</b></label>
+            <input type="range" id="social" min="5" max="80" value="30">
+            <small>Part des taps qui suivent un compte social.</small>
+          </div>
+          <div class="field">
+            <label>Valeur estimée d'un avis Google <b id="v-valavis">12€</b></label>
+            <input type="range" id="valavis" min="2" max="40" value="12">
+            <small>Valeur business moyenne d'un avis (visibilité + confiance).</small>
+          </div>
+        </div>
+        <div class="results">
+          <div class="res-row"><span>Taps / mois</span><b id="r-scans">—</b></div>
+          <div class="res-row"><span>Nouveaux avis Google / mois</span><b id="r-avis">—</b></div>
+          <div class="res-row"><span>Nouveaux abonnés / mois</span><b id="r-social">—</b></div>
+          <div class="res-row"><span>Valeur générée / mois</span><b id="r-val">—</b></div>
+          <div class="res-hi">
+            <span>Plaque rentabilisée en</span>
+            <b id="r-roi">—</b>
+            <span>(coût unique 49,90€ HT)</span>
+          </div>
+          <p class="note" style="text-align:center">Estimation indicative basée sur vos hypothèses. Les résultats réels varient selon le secteur et l'emplacement.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CASE STUDIES -->
+<section>
+  <div class="wrap">
+    <h2><span class="lead">Études de cas</span>Un usage adapté à <span class="em">chaque métier</span></h2>
+    <p class="sub">Comment la plaque NFC se déploie concrètement selon votre secteur.</p>
+    <div class="tabs" id="tabs">
+      <div class="tab active" data-c="commerce">🛍️ Commerce</div>
+      <div class="tab" data-c="beaute">💅 Beauté</div>
+      <div class="tab" data-c="resto">🍽️ Restauration</div>
+      <div class="tab" data-c="franchise">🏢 Franchise</div>
+      <div class="tab" data-c="garage">🔧 Garage</div>
+    </div>
+
+    <div class="case active" data-c="commerce">
+      <div class="txt">
+        <span class="pill">Commerce de détail</span>
+        <h3>Transformer chaque passage en caisse en avis</h3>
+        <p>Une plaque près de la caisse invite le client à laisser un avis pendant qu'il règle, et à suivre la boutique pour ne rien rater.</p>
+        <ul>
+          <li>Plaque au comptoir → avis Google au paiement</li>
+          <li>Lien Instagram pour arrivages et soldes</li>
+          <li>Lien e-shop pour prolonger la vente en ligne</li>
+        </ul>
+      </div>
+      <div class="metrics">
+        <div class="metric"><b>+3×</b><span>volume d'avis vs QR code</span></div>
+        <div class="metric"><b>+120</b><span>abonnés / trimestre</span></div>
+        <div class="metric"><b>4,7★</b><span>note moyenne maintenue</span></div>
+        <div class="metric"><b>&lt;1j</b><span>retour sur investissement</span></div>
+      </div>
+    </div>
+
+    <div class="case" data-c="beaute">
+      <div class="txt">
+        <span class="pill">Salon · Institut · Barbier</span>
+        <h3>Le « waouh » du résultat, capté à chaud</h3>
+        <p>En fin de prestation, le client est au sommet de sa satisfaction : le moment idéal pour un avis et un abonnement.</p>
+        <ul>
+          <li>Plaque au miroir / caisse → avis dès la fin du soin</li>
+          <li>Réseaux pour montrer les avant/après</li>
+          <li>Lien de prise de RDV en ligne pour fidéliser</li>
+        </ul>
+      </div>
+      <div class="metrics">
+        <div class="metric"><b>+45%</b><span>de RDV repris en ligne</span></div>
+        <div class="metric"><b>×2</b><span>croissance Instagram</span></div>
+        <div class="metric"><b>+60</b><span>avis en 2 mois</span></div>
+        <div class="metric"><b>0€</b><span>de frais récurrents</span></div>
+      </div>
+    </div>
+
+    <div class="case" data-c="resto">
+      <div class="txt">
+        <span class="pill">Restaurant · Café · Food</span>
+        <h3>Du menu à l'avis, sur chaque table</h3>
+        <p>Une plaque sur table ou à l'addition donne accès au menu, aux réseaux et aux avis. Le client commande, découvre, puis recommande.</p>
+        <ul>
+          <li>Menu digital toujours à jour (zéro réimpression)</li>
+          <li>Avis Google captés au moment de l'addition</li>
+          <li>Réseaux + réservation pour remplir les services</li>
+        </ul>
+      </div>
+      <div class="metrics">
+        <div class="metric"><b>+200</b><span>avis / an sur 5 tables</span></div>
+        <div class="metric"><b>-100%</b><span>coût d'impression menus</span></div>
+        <div class="metric"><b>+30%</b><span>réservations en ligne</span></div>
+        <div class="metric"><b>4,6★</b><span>note relevée en 3 mois</span></div>
+      </div>
+    </div>
+
+    <div class="case" data-c="franchise">
+      <div class="txt">
+        <span class="pill">Réseau · Franchise · Multi-sites</span>
+        <h3>Une image cohérente sur tous les points de vente</h3>
+        <p>Chaque établissement a sa plaque pointant vers ses liens locaux, tout en respectant la charte du réseau. Gestion centralisée par nous.</p>
+        <ul>
+          <li>Plaques personnalisées à la marque (MOQ 10)</li>
+          <li>Liens locaux par établissement, charte commune</li>
+          <li>Mises à jour pilotées de façon centralisée</li>
+        </ul>
+      </div>
+      <div class="metrics">
+        <div class="metric"><b>1</b><span>déploiement, N sites</span></div>
+        <div class="metric"><b>100%</b><span>cohérence de marque</span></div>
+        <div class="metric"><b>+avis</b><span>par établissement local</span></div>
+        <div class="metric"><b>0</b><span>gestion technique côté franchisé</span></div>
+      </div>
+    </div>
+
+    <div class="case" data-c="garage">
+      <div class="txt">
+        <span class="pill">Garage · Auto · Services techniques</span>
+        <h3>La confiance se construit sur les avis</h3>
+        <p>Dans un secteur où la réputation est clé, la plaque à l'accueil transforme une réparation réussie en avis crédible.</p>
+        <ul>
+          <li>Plaque à l'accueil → avis à la restitution du véhicule</li>
+          <li>Lien site pour devis et RDV atelier</li>
+          <li>Coordonnées et WhatsApp pour le suivi client</li>
+        </ul>
+      </div>
+      <div class="metrics">
+        <div class="metric"><b>+4×</b><span>avis vs avant la plaque</span></div>
+        <div class="metric"><b>+25%</b><span>de demandes de devis</span></div>
+        <div class="metric"><b>4,8★</b><span>réputation renforcée</span></div>
+        <div class="metric"><b>&lt;1j</b><span>amortissement</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRIX -->
+<section id="prix">
+  <div class="wrap">
+    <h2 style="text-align:center"><span class="lead">Le tarif</span>Simple, unique, <span class="em">sans surprise</span></h2>
+    <p class="sub" style="margin:0 auto 2.4rem;text-align:center">Un prix de référence clair pour démarrer, ou un tarif sur mesure selon vos volumes et votre personnalisation.</p>
+    <div class="grid g2" style="align-items:stretch">
+      <div class="price-box">
+        <span class="tag">PAIEMENT UNIQUE · À VIE</span>
+        <div class="price">49,90€ <small>HT</small></div>
+        <p>Plaque configurée, prête à l'emploi. Aucun abonnement, jamais.</p>
+        <ul>
+          <li>Plaque NFC physique de qualité</li>
+          <li>Page de liens créée et configurée par nos soins</li>
+          <li>Hébergement et maintenance inclus à vie</li>
+          <li>Modifications des liens illimitées</li>
+          <li>Support par message</li>
+        </ul>
+        <div style="margin-top:24px"><a class="btn" href="#contact">Commander ma plaque</a></div>
+      </div>
+      <div class="price-box hi">
+        <span class="tag alt">SUR MESURE · VOLUMES &amp; MARQUE</span>
+        <div class="price" style="font-size:2.4rem">Sur devis</div>
+        <p>Un tarif dégressif adapté à votre projet.</p>
+        <ul>
+          <li>Tarif dégressif selon les quantités</li>
+          <li>Personnalisation au design de votre enseigne (MOQ 10)</li>
+          <li>Formats &amp; supports spécifiques (table, vitrine, comptoir…)</li>
+          <li>Déploiement multi-sites / franchise</li>
+          <li>Accompagnement dédié</li>
+        </ul>
+        <div style="margin-top:24px"><a class="btn ghost" href="https://calendly.com/centrsupply/30min" target="_blank" rel="noopener">Demander un devis</a></div>
+      </div>
+    </div>
+    <p class="note" style="text-align:center;margin-top:18px">💡 À partir de 10 plaques, profitez de la personnalisation à votre marque et d'un tarif adapté.</p>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section id="comment-ca-marche">
+  <div class="wrap">
+    <h2 style="text-align:center"><span class="lead">Comment ça marche</span>Simple comme un <span class="em">tap</span></h2>
+    <div class="steps" style="margin-top:30px">
+      <div class="step"><h3>On configure votre espace</h3><p>On crée votre page personnalisée — votre Linktree maison — avec tous vos liens centralisés.</p></div>
+      <div class="step"><h3>On installe sur place</h3><p>On programme la plaque et on la met à l'endroit stratégique. Zéro effort de votre côté.</p></div>
+      <div class="step"><h3>Votre réputation décolle</h3><p>Vos clients tappent, vous récoltez avis et abonnés. L'effet boule de neige, automatiquement.</p></div>
+    </div>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="wrap">
+    <h2>Prêt à booster votre réputation ?</h2>
+    <p>Une plaque, tous vos liens, gérée pour vous. 49,90€ HT ou tarif sur mesure selon vos volumes. Personnalisation à votre marque dès 10 plaques.</p>
+    <div class="cta" style="justify-content:center">
+      <a class="btn" href="https://calendly.com/centrsupply/30min" target="_blank" rel="noopener">📅 Choisir mon créneau →</a>
+      <a class="btn ghost" href="https://wa.me/message/SCE7XKAHGA56E1" target="_blank" rel="noopener">💬 WhatsApp</a>
+      <a class="btn ghost" href="mailto:contact@centrsupply.com">✉️ contact@centrsupply.com</a>
+      <a class="btn ghost" href="tel:+33775758121">📞 +33 7 75 75 81 21</a>
+    </div>
+    <span class="meta">Propulsé par <a href="https://centrsupply.com" target="_blank" rel="noopener">Centr Supply</a> — Distributeur B2B</span>
+    <span class="copy">© 2026 Centr Supply · Plaques NFC · Page de liens centralisée · Sans abonnement</span>
+  </div>
+</footer>
+
+<script>
+  const els={clients:document.getElementById('clients'),scan:document.getElementById('scan'),
+    avis:document.getElementById('avis'),social:document.getElementById('social'),valavis:document.getElementById('valavis')};
+  const eur=n=>n.toLocaleString('fr-FR',{maximumFractionDigits:0})+'€';
+  const num=n=>n.toLocaleString('fr-FR',{maximumFractionDigits:0});
+  function calc(){
+    const clients=+els.clients.value,scan=+els.scan.value,avis=+els.avis.value,social=+els.social.value,valavis=+els.valavis.value;
+    document.getElementById('v-clients').textContent=clients;
+    document.getElementById('v-scan').textContent=scan+'%';
+    document.getElementById('v-avis').textContent=avis+'%';
+    document.getElementById('v-social').textContent=social+'%';
+    document.getElementById('v-valavis').textContent=valavis+'€';
+    const scansMonth=clients*30*(scan/100),avisMonth=scansMonth*(avis/100),socialMonth=scansMonth*(social/100),valMonth=avisMonth*valavis;
+    document.getElementById('r-scans').textContent=num(scansMonth);
+    document.getElementById('r-avis').textContent=num(avisMonth);
+    document.getElementById('r-social').textContent=num(socialMonth);
+    document.getElementById('r-val').textContent=eur(valMonth);
+    const cost=49.90;let roiTxt;
+    if(valMonth<=0)roiTxt='—';
+    else{const days=Math.ceil(cost/(valMonth/30));roiTxt=days<=1?"moins d'1 jour":days<30?days+' jours':(cost/valMonth).toFixed(1)+' mois';}
+    document.getElementById('r-roi').textContent=roiTxt;
+  }
+  Object.values(els).forEach(e=>e.addEventListener('input',calc));calc();
+  document.getElementById('tabs').addEventListener('click',e=>{
+    const t=e.target.closest('.tab');if(!t)return;const c=t.dataset.c;
+    document.querySelectorAll('.tab').forEach(x=>x.classList.toggle('active',x===t));
+    document.querySelectorAll('.case').forEach(x=>x.classList.toggle('active',x.dataset.c===c));
+  });
+</script>
+</body>
+</html>
